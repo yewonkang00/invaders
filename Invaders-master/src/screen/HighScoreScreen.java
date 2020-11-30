@@ -66,11 +66,7 @@ public class HighScoreScreen extends Screen {
 		if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 			BufferedWriter file = null;
 			try {
-<<<<<<< Updated upstream
-				file = new BufferedWriter(new FileWriter("./res/scores"));
-=======
 				file = new BufferedWriter(new FileWriter("scores"));
->>>>>>> Stashed changes
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
