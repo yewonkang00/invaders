@@ -62,11 +62,9 @@ public class Ship2 extends Entity {
 	/**
 	 * Shoots a bullet upwards.
 	 * 
-<<<<<<< HEAD
 	 * @param bullets2
-=======
 	 * @param bullets
->>>>>>> 80f2cda... add player2
+	 * @param bullets
 	 *            List of bullets on screen, to add the new bullet.
 	 * @return Checks if the bullet was shot correctly.
 	 */
