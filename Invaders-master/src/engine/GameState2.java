@@ -6,7 +6,7 @@ package engine;
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
  */
-public class GameState {
+public class GameState2 {
 
 	/** Current game level. */
 	private int level;
@@ -18,8 +18,6 @@ public class GameState {
 	private int bulletsShot;
 	/** Ships destroyed until now. */
 	private int shipsDestroyed;
-
-	private String difficulty;
 
 	/**
 	 * Constructor.
@@ -35,7 +33,7 @@ public class GameState {
 	 * @param shipsDestroyed
 	 *            Ships destroyed until now.
 	 */
-	public GameState( int level,  String difficulty,  int score,
+	public GameState2( int level,  String difficulty,  int score,
 			 int livesRemaining,  int bulletsShot,
 			 int shipsDestroyed) {
 		this.level = level;
@@ -43,7 +41,6 @@ public class GameState {
 		this.livesRemaining = livesRemaining;
 		this.bulletsShot = bulletsShot;
 		this.shipsDestroyed = shipsDestroyed;
-		this.difficulty = difficulty;
 	}
 
 	/**
@@ -79,10 +76,6 @@ public class GameState {
 	 */
 	public final int getShipsDestroyed() {
 		return shipsDestroyed;
-	}
-
-	public final String getDifficulty() {
-		return difficulty;
 	}
 
 }
