@@ -522,24 +522,6 @@ public final class DrawManager {
 		drawCenteredRegularString(screen, resetString,
 				screen.getHeight() / 4);
 	}
-	
-	public void drawPauseMenu(final Screen screen, final int option) {
-		String continueString = "Continue Game"; //option 1
-		String endString = "End Game"; //option 0
-
-		if (option == 1)
-			backBufferGraphics.setColor(Color.GREEN);
-		else
-			backBufferGraphics.setColor(Color.WHITE);
-		drawCenteredRegularString(screen, continueString,
-				screen.getHeight() / 6);
-		if (option == 0)
-			backBufferGraphics.setColor(Color.GREEN);
-		else
-			backBufferGraphics.setColor(Color.WHITE);
-		drawCenteredRegularString(screen, endString, screen.getHeight()/ 3);
-
-	}
 
 	/**
 	 * Draws high scores.
@@ -717,7 +699,6 @@ public final class DrawManager {
 		backBufferGraphics.setColor(Color.BLACK);
 		backBufferGraphics.fillRect(0, screen.getHeight() / 2 - rectHeight / 2,
 				rectWidth, rectHeight);
-		
 		backBufferGraphics.setColor(Color.GREEN);
 		if (number >= 4)
 			if (!bonusLife) {
