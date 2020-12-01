@@ -244,6 +244,24 @@ public final class DrawManager {
 	}
 
 	/**
+	 * Draws current Difficulty and level on screen.
+	 *
+	 * @param screen
+	 *            Screen to draw on.
+	 * @param difficulty
+	 *            Current score.
+	 * @param level
+	 * 	 *            Current score.
+	 */
+	public void drawdifficulty(final Screen screen, final String difficulty, final int level) {
+		backBufferGraphics.setFont(fontRegular);
+		backBufferGraphics.setColor(Color.WHITE);
+		String levelString = String.format("%02d", level);
+		backBufferGraphics.drawString(difficulty, screen.getWidth() - 90, 25);
+		backBufferGraphics.drawString(levelString, screen.getWidth() - 120, 25);
+	}
+
+	/**
 	 * Draws number of remaining lives on screen.
 	 * 
 	 * @param screen

@@ -71,6 +71,8 @@ public class GameScreen extends Screen {
 	/** Checks if a bonus life is received. */
 	private boolean bonusLife;
 
+	private String difficulty;
+
 	/**
 	 * Constructor, establishes the properties of the screen.
 	 * 
@@ -101,6 +103,7 @@ public class GameScreen extends Screen {
 			this.lives++;
 		this.bulletsShot = gameState.getBulletsShot();
 		this.shipsDestroyed = gameState.getShipsDestroyed();
+		this.difficulty = gameState.getDifficulty();
 	}
 
 	/**
@@ -231,6 +234,7 @@ public class GameScreen extends Screen {
 
 		// Interface.
 		drawManager.drawScore(this, this.score);
+		drawManager.drawdifficulty(this,this.difficulty, this.level);
 		drawManager.drawLives(this, this.lives);
 		drawManager.drawHorizontalLine(this, SEPARATION_LINE_HEIGHT - 1);
 
@@ -335,7 +339,7 @@ public class GameScreen extends Screen {
 	 * @return Current game state.
 	 */
 	public final GameState getGameState() {
-		return new GameState(this.level, this.score, this.lives,
+		return new GameState(this.level, this.difficulty, this.score, this.lives,
 				this.bulletsShot, this.shipsDestroyed);
 	}
 }
