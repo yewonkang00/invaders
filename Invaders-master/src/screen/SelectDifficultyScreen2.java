@@ -48,7 +48,7 @@ public class SelectDifficultyScreen2 extends Screen{
     }
 
     private void nextMenuItem() {
-        if (this.returnCode == 10)
+        if (this.returnCode == 11)
             this.returnCode = 8;
         else
             this.returnCode++;
@@ -60,7 +60,7 @@ public class SelectDifficultyScreen2 extends Screen{
 
     private void previousMenuItem() {
         if (this.returnCode == 8)
-            this.returnCode = 10;
+            this.returnCode = 11;
         else
             this.returnCode--;
     }

@@ -570,6 +570,13 @@ public final class DrawManager {
 				- fontRegularMetrics.stringWidth(string) / 2, height);
 	}
 	
+	public void drawCenteredRegularString3(final Screen screen,
+			final String string, final int height) {
+		backBufferGraphics.setFont(fontRegular);
+		backBufferGraphics.drawString(string, screen.getWidth() / 2
+				- fontRegularMetrics.stringWidth(string) / 2, 450);
+	}
+	
 	/**
 	 * Draws a centered string on big font.
 	 * 
@@ -626,7 +633,7 @@ public final class DrawManager {
 			backBufferGraphics.setColor(Color.GREEN);
 		else
 			backBufferGraphics.setColor(Color.WHITE);
-		drawCenteredRegularString(screen, Back,
+		drawCenteredRegularString3(screen, Back,
 				screen.getHeight() / 3 * 2);
 
 		backBufferGraphics.setColor(Color.GREEN);
@@ -663,7 +670,7 @@ public final class DrawManager {
 			backBufferGraphics.setColor(Color.GREEN);
 		else
 			backBufferGraphics.setColor(Color.WHITE);
-		drawCenteredRegularString(screen, Back,
+		drawCenteredRegularString3(screen, Back,
 				screen.getHeight() / 3 * 2);
 
 		backBufferGraphics.setColor(Color.GREEN);
