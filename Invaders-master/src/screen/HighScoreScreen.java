@@ -1,6 +1,8 @@
 package screen;
 
 import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
@@ -61,6 +63,22 @@ public class HighScoreScreen extends Screen {
 		if (inputManager.isKeyDown(KeyEvent.VK_SPACE)
 				&& this.inputDelay.checkFinished())
 			this.isRunning = false;
+		if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
+			BufferedWriter file = null;
+			try {
+				file = new BufferedWriter(new FileWriter("scores"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				file.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			this.isRunning = false;
+		}
 	}
 
 	/**
