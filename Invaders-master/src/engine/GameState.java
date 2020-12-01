@@ -19,6 +19,8 @@ public class GameState {
 	/** Ships destroyed until now. */
 	private int shipsDestroyed;
 
+	private String difficulty;
+
 	/**
 	 * Constructor.
 	 * 
@@ -33,7 +35,7 @@ public class GameState {
 	 * @param shipsDestroyed
 	 *            Ships destroyed until now.
 	 */
-	public GameState(final int level, final int score,
+	public GameState(final int level, final String difficulty, final int score,
 			final int livesRemaining, final int bulletsShot,
 			final int shipsDestroyed) {
 		this.level = level;
@@ -41,6 +43,7 @@ public class GameState {
 		this.livesRemaining = livesRemaining;
 		this.bulletsShot = bulletsShot;
 		this.shipsDestroyed = shipsDestroyed;
+		this.difficulty = difficulty;
 	}
 
 	/**
@@ -76,6 +79,10 @@ public class GameState {
 	 */
 	public final int getShipsDestroyed() {
 		return shipsDestroyed;
+	}
+
+	public final String getDifficulty() {
+		return difficulty;
 	}
 
 }
