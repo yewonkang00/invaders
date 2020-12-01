@@ -38,6 +38,9 @@ public class GameScreen extends Screen {
 	/** Height of the interface separation line. */
 	private static final int SEPARATION_LINE_HEIGHT = 40;
 
+	private static final double POINT_EASY = 0.5;
+	private static final double POINT_HARD = 1.5;
+
 	/** Current game difficulty settings. */
 	private GameSettings gameSettings;
 	/** Current difficulty level number. */
@@ -289,7 +292,14 @@ public class GameScreen extends Screen {
 				for (EnemyShip enemyShip : this.enemyShipFormation)
 					if (!enemyShip.isDestroyed()
 							&& checkCollision(bullet, enemyShip)) {
-						this.score += enemyShip.getPointValue();
+						if (this.difficulty.equals("E")) {
+							this.score += enemyShip.getPointValue() * POINT_EASY;
+						}
+						else if (this.difficulty.equals("H")) {
+							this.score += enemyShip.getPointValue() * POINT_HARD;
+						}
+						else this.score += enemyShip.getPointValue();
+
 						this.shipsDestroyed++;
 						this.enemyShipFormation.destroy(enemyShip);
 						recyclable.add(bullet);
@@ -297,7 +307,14 @@ public class GameScreen extends Screen {
 				if (this.enemyShipSpecial != null
 						&& !this.enemyShipSpecial.isDestroyed()
 						&& checkCollision(bullet, this.enemyShipSpecial)) {
-					this.score += this.enemyShipSpecial.getPointValue();
+					if (this.difficulty.equals("E")) {
+						this.score += this.enemyShipSpecial.getPointValue() * POINT_EASY;
+					}
+					else if (this.difficulty.equals("H")) {
+						this.score += this.enemyShipSpecial.getPointValue() * POINT_HARD;
+					}
+					else this.score += this.enemyShipSpecial.getPointValue();
+
 					this.shipsDestroyed++;
 					this.enemyShipSpecial.destroy();
 					this.enemyShipSpecialExplosionCooldown.reset();

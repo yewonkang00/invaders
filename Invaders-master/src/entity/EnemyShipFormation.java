@@ -27,7 +27,7 @@ public class EnemyShipFormation implements Iterable<EnemyShip> {
 	/** Initial position in the x-axis. */
 	private static final int INIT_POS_Y = 100;
 	/** Distance between ships. */
-	private static final int SEPARATION_DISTANCE = 25;
+	private static final int SEPARATION_DISTANCE = 40;
 	/** Proportion of C-type ships. */
 	private static final double PROPORTION_C = 0.2;
 	/** Proportion of B-type ships. */
