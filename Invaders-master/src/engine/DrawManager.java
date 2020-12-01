@@ -307,7 +307,10 @@ public final class DrawManager {
 		String highScoresString = "High scores";
 		String exitString = "exit";
 
-		if (option == 2)
+
+//		if (option == 2)
+//			backBufferGraphics.setColor(Color.GREEN);
+		if (option == 7)
 			backBufferGraphics.setColor(Color.GREEN);
 		else
 			backBufferGraphics.setColor(Color.WHITE);
@@ -323,6 +326,7 @@ public final class DrawManager {
 			backBufferGraphics.setColor(Color.GREEN);
 		else
 			backBufferGraphics.setColor(Color.WHITE);
+
 		drawCenteredRegularString(screen, exitString, screen.getHeight() / 3
 				* 2 + fontRegularMetrics.getHeight() * 4);
 	}
@@ -519,6 +523,46 @@ public final class DrawManager {
 		backBufferGraphics.setFont(fontBig);
 		backBufferGraphics.drawString(string, screen.getWidth() / 2
 				- fontBigMetrics.stringWidth(string) / 2, height);
+	}
+
+	/**
+	 * 일단 내가 만들어놈
+	 *
+	 * Draws Difficulty select screen title.
+	 *
+	 * @param screen
+	 *            Screen to draw on.
+	 * @param option
+	 *            Option selected.
+	 */
+	public void drawSelectDifficulty(final Screen screen, final int option) {
+		String Difficulty = "Select Difficulty";
+		String LevelEasy = "EASY"; // Option : 4
+		String LevelNormal = "NORMAL"; // Option : 5
+		String LevelHard = "HARD"; // Option :6
+
+		if (option == 4)
+			backBufferGraphics.setColor(Color.GREEN);
+		else
+			backBufferGraphics.setColor(Color.WHITE);
+		drawCenteredRegularString(screen, LevelEasy,
+				screen.getHeight() / 3 * 2);
+		if (option == 5)
+			backBufferGraphics.setColor(Color.GREEN);
+		else
+			backBufferGraphics.setColor(Color.WHITE);
+		drawCenteredRegularString(screen, LevelNormal, screen.getHeight()
+				/ 3 * 2 + fontRegularMetrics.getHeight() * 2);
+		if (option == 6)
+			backBufferGraphics.setColor(Color.GREEN);
+		else
+			backBufferGraphics.setColor(Color.WHITE);
+		drawCenteredRegularString(screen, LevelHard, screen.getHeight() / 3
+				* 2 + fontRegularMetrics.getHeight() * 4);
+
+		backBufferGraphics.setColor(Color.GREEN);
+		drawCenteredBigString(screen, Difficulty, screen.getHeight() / 8);
+
 	}
 
 	/**

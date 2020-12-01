@@ -32,8 +32,9 @@ public class TitleScreen extends Screen {
 	public TitleScreen(final int width, final int height, final int fps) {
 		super(width, height, fps);
 
-		// Defaults to play.
-		this.returnCode = 2;
+		// Defaults to play. <- returnCode를 난이도 선택
+//		this.returnCode = 2;
+		this.returnCode = 7;
 		this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
 		this.selectionCooldown.reset();
 	}
@@ -76,25 +77,41 @@ public class TitleScreen extends Screen {
 	/**
 	 * Shifts the focus to the next menu item.
 	 */
+//	private void nextMenuItem() {
+//		if (this.returnCode == 3)
+//			this.returnCode = 0;
+//		else if (this.returnCode == 0)
+//			this.returnCode = 2;
+//		else
+//			this.returnCode++;
+//	}
 	private void nextMenuItem() {
 		if (this.returnCode == 3)
 			this.returnCode = 0;
 		else if (this.returnCode == 0)
 			this.returnCode = 2;
-		else
-			this.returnCode++;
+		else if (this.returnCode == 7)
+			this.returnCode = 3;
 	}
 
 	/**
 	 * Shifts the focus to the previous menu item.
 	 */
+//	private void previousMenuItem() {
+//		if (this.returnCode == 0)
+//			this.returnCode = 3;
+//		else if (this.returnCode == 2)
+//			this.returnCode = 0;
+//		else
+//			this.returnCode--;
+//	}
 	private void previousMenuItem() {
 		if (this.returnCode == 0)
 			this.returnCode = 3;
-		else if (this.returnCode == 2)
+		else if (this.returnCode == 3)
+			this.returnCode = 7;
+		else if (this.returnCode == 7)
 			this.returnCode = 0;
-		else
-			this.returnCode--;
 	}
 
 	/**
