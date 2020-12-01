@@ -602,6 +602,7 @@ public final class DrawManager {
 		String LevelEasy = "EASY"; // Option : 4
 		String LevelNormal = "NORMAL"; // Option : 5
 		String LevelHard = "HARD"; // Option :6
+		String Back = "BACK"; // Option :11
 
 		if (option == 4) //1player easy
 			backBufferGraphics.setColor(Color.GREEN);
@@ -621,6 +622,12 @@ public final class DrawManager {
 			backBufferGraphics.setColor(Color.WHITE);
 		drawCenteredRegularString(screen, LevelHard, screen.getHeight() / 3
 				* 2 + fontRegularMetrics.getHeight() * 4);
+		if (option == 11) //back
+			backBufferGraphics.setColor(Color.GREEN);
+		else
+			backBufferGraphics.setColor(Color.WHITE);
+		drawCenteredRegularString(screen, Back,
+				screen.getHeight() / 3 * 2);
 
 		backBufferGraphics.setColor(Color.GREEN);
 		drawCenteredBigString(screen, Difficulty, screen.getHeight() / 8);
@@ -632,6 +639,7 @@ public final class DrawManager {
 		String LevelEasy = "EASY"; // Option : 4
 		String LevelNormal = "NORMAL"; // Option : 5
 		String LevelHard = "HARD"; // Option :6
+		String Back = "BACK"; // Option :11
 
 		if (option == 8) //2player easy
 			backBufferGraphics.setColor(Color.GREEN);
@@ -651,6 +659,12 @@ public final class DrawManager {
 			backBufferGraphics.setColor(Color.WHITE);
 		drawCenteredRegularString(screen, LevelHard, screen.getHeight() / 3
 				* 2 + fontRegularMetrics.getHeight() * 4);
+		if (option == 11) //back
+			backBufferGraphics.setColor(Color.GREEN);
+		else
+			backBufferGraphics.setColor(Color.WHITE);
+		drawCenteredRegularString(screen, Back,
+				screen.getHeight() / 3 * 2);
 
 		backBufferGraphics.setColor(Color.GREEN);
 		drawCenteredBigString(screen, Difficulty, screen.getHeight() / 8);

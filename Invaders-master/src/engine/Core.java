@@ -253,6 +253,15 @@ public final class Core {
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing Difficulty select screen.");
 				break;
+				
+			case 11:
+				//난이도 선택 화면에서 back 기능
+				currentScreen = new TitleScreen(width, height, FPS);
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
+						+ " title screen at " + FPS + " fps.");
+				returnCode = frame.setScreen(currentScreen);
+				LOGGER.info("Closing title screen.");
+				break;
 			/** Easy Level Game */
 			case 4:
 				do {
