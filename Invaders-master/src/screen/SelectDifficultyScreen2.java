@@ -7,15 +7,15 @@ import engine.Cooldown;
 import engine.Core;
 
 
-public class SelectDifficultyScreen extends Screen{
+public class SelectDifficultyScreen2 extends Screen{
 
     private static final int SELECTION_TIME = 200;
     private final Cooldown selectionCooldown;
 
-    public SelectDifficultyScreen(final int width, final int height, final int fps) {
+    public SelectDifficultyScreen2(final int width, final int height, final int fps) {
         super(width, height, fps);
 
-        this.returnCode = 4;
+        this.returnCode = 8;
         this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
         this.selectionCooldown.reset();
     }
@@ -48,8 +48,8 @@ public class SelectDifficultyScreen extends Screen{
     }
 
     private void nextMenuItem() {
-        if (this.returnCode == 6)
-            this.returnCode = 4;
+        if (this.returnCode == 10)
+            this.returnCode = 8;
         else
             this.returnCode++;
     }
@@ -59,8 +59,8 @@ public class SelectDifficultyScreen extends Screen{
      */
 
     private void previousMenuItem() {
-        if (this.returnCode == 4)
-            this.returnCode = 6;
+        if (this.returnCode == 8)
+            this.returnCode = 10;
         else
             this.returnCode--;
     }
@@ -71,7 +71,7 @@ public class SelectDifficultyScreen extends Screen{
     private void draw() {
         drawManager.initDrawing(this);
 
-        drawManager.drawSelectDifficulty_1(this, this.returnCode);
+        drawManager.drawSelectDifficulty_2(this, this.returnCode);
 //        drawManager.drawMenu(this, this.returnCode);
 
         drawManager.completeDrawing(this);

@@ -282,7 +282,7 @@ public class GameScreen2 extends Screen {
 		drawManager.drawScore(this, this.score);
 		drawManager.drawdifficulty(this,this.difficulty, this.level);
 		drawManager.drawLives(this, this.lives);
-		drawManager.drawLives(this, this.lives2);
+		drawManager.drawLives2(this, this.lives2);
 		drawManager.drawHorizontalLine(this, SEPARATION_LINE_HEIGHT - 1);
 
 		// Countdown to game start.
@@ -418,7 +418,7 @@ public class GameScreen2 extends Screen {
 	}
 	
 	public final GameState2 getGameState2() {
-		return new GameState2(this.level, this.score, this.lives2,
-				this.bulletsShot, this.shipsDestroyed2);
+		return new GameState2(this.level, this.difficulty, this.score, this.lives2,
+				this.bulletsShot2, this.shipsDestroyed2);
 	}
 }

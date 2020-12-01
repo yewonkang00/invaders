@@ -32,9 +32,9 @@ public class TitleScreen extends Screen {
 	public TitleScreen(final int width, final int height, final int fps) {
 		super(width, height, fps);
 
-		// Defaults to play. <- returnCode를 난이도 선택
+		// Defaults to play. <- returnCode瑜� �궃�씠�룄 �꽑�깮
 //		this.returnCode = 2;
-		this.returnCode = 7;
+		this.returnCode = 51;
 		this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
 		this.selectionCooldown.reset();
 	}
@@ -59,12 +59,12 @@ public class TitleScreen extends Screen {
 		draw();
 		if (this.selectionCooldown.checkFinished()
 				&& this.inputDelay.checkFinished()) {
-			if (inputManager.isKeyDown(KeyEvent.VK_UP)
+			if (inputManager.isKeyDown(KeyEvent.VK_UP) || inputManager.isKeyDown(KeyEvent.VK_RIGHT)
 					|| inputManager.isKeyDown(KeyEvent.VK_W)) {
 				previousMenuItem();
 				this.selectionCooldown.reset();
 			}
-			if (inputManager.isKeyDown(KeyEvent.VK_DOWN)
+			if (inputManager.isKeyDown(KeyEvent.VK_DOWN) || inputManager.isKeyDown(KeyEvent.VK_LEFT)
 					|| inputManager.isKeyDown(KeyEvent.VK_S)) {
 				nextMenuItem();
 				this.selectionCooldown.reset();
@@ -86,12 +86,14 @@ public class TitleScreen extends Screen {
 //			this.returnCode++;
 //	}
 	private void nextMenuItem() {
-		if (this.returnCode == 3)
+		if (this.returnCode == 52)
+			this.returnCode = 3;
+		else if (this.returnCode == 3)
 			this.returnCode = 0;
 		else if (this.returnCode == 0)
-			this.returnCode = 2;
-		else if (this.returnCode == 7)
-			this.returnCode = 3;
+			this.returnCode = 51;
+		else
+			this.returnCode++;
 	}
 
 	/**
@@ -109,9 +111,11 @@ public class TitleScreen extends Screen {
 		if (this.returnCode == 0)
 			this.returnCode = 3;
 		else if (this.returnCode == 3)
-			this.returnCode = 7;
-		else if (this.returnCode == 7)
+			this.returnCode = 52;
+		else if (this.returnCode == 51)
 			this.returnCode = 0;
+		else
+			this.returnCode--;
 	}
 
 	/**

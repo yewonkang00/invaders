@@ -33,9 +33,9 @@ public class GameState2 {
 	 * @param shipsDestroyed
 	 *            Ships destroyed until now.
 	 */
-	public GameState2(final int level, final int score,
-			final int livesRemaining, final int bulletsShot,
-			final int shipsDestroyed) {
+	public GameState2( int level,  String difficulty,  int score,
+			 int livesRemaining,  int bulletsShot,
+			 int shipsDestroyed) {
 		this.level = level;
 		this.score = score;
 		this.livesRemaining = livesRemaining;

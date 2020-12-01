@@ -198,19 +198,26 @@ public final class Core {
 		gameSettings_hard.add(SETTINGS_LEVEL_13);
 
 
-//		GameState gameState;
+		GameState gameState;
+		GameState2 gameState2;
+		
 		GameState gameState_normal;
 		GameState gameState_easy;
 		GameState gameState_hard;
+		GameState2 gameState2_normal;
+		GameState2 gameState2_easy;
+		GameState2 gameState2_hard;
 
 
 		int returnCode = 1;
 		do {
 //			gameState = new GameState(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0);
-			gameState_normal = new GameState(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0); // normal에서 level_1는 실제레벨 4
+			gameState_normal = new GameState(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0); // normal�뿉�꽌 level_1�뒗 �떎�젣�젅踰� 4
 			gameState_easy = new GameState(1, DIFFICULTY_EASY, 0,  MAX_LIVES_EASY, 0, 0);
 			gameState_hard = new GameState(1, DIFFICULTY_HARD, 0,  MAX_LIVES_HARD, 0, 0);
-
+			gameState2_normal = new GameState2(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0); // normal�뿉�꽌 level_1�뒗 �떎�젣�젅踰� 4
+			gameState2_easy = new GameState2(1, DIFFICULTY_EASY, 0,  MAX_LIVES_EASY, 0, 0);
+			gameState2_hard = new GameState2(1, DIFFICULTY_HARD, 0,  MAX_LIVES_HARD, 0, 0);
 
 			switch (returnCode) {
 			case 1:
@@ -221,16 +228,31 @@ public final class Core {
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing title screen.");
 				break;
-			case 7:
-				// Difficulty Select Menu
+			/*
+			 * case 7: // Difficulty Select Menu currentScreen = new
+			 * SelectDifficultyScreen(width, height, FPS); LOGGER.info("Starting " + WIDTH +
+			 * "x" + HEIGHT + " difficulty select screen at " + FPS + " fps."); returnCode =
+			 * frame.setScreen(currentScreen);
+			 * LOGGER.info("Closing Difficulty select screen."); break;
+			 */
+//			case 2:
+			case 51:
+				//1 player
 				currentScreen = new SelectDifficultyScreen(width, height, FPS);
 				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
 						+ " difficulty select screen at " + FPS + " fps.");
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing Difficulty select screen.");
 				break;
-//			case 2:
-
+				
+			case 52:
+				//2 player
+				currentScreen = new SelectDifficultyScreen2(width, height, FPS);
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
+						+ " difficulty select screen at " + FPS + " fps.");
+				returnCode = frame.setScreen(currentScreen);
+				LOGGER.info("Closing Difficulty select screen.");
+				break;
 			/** Easy Level Game */
 			case 4:
 				do {
@@ -352,7 +374,137 @@ public final class Core {
 				LOGGER.info("Closing score screen.");
 				break;
 
+				/** Easy Level Game */
+			case 8:
+				do {
+					// One extra live every few levels.
+					boolean bonusLife = gameState2_easy.getLevel()
+							% EXTRA_LIFE_FRECUENCY_EASY == 0
+							&& gameState2_easy.getLivesRemaining() < MAX_LIVES_EASY;
+					boolean bonusLife2 = gameState2_easy.getLevel()
+							% EXTRA_LIFE_FRECUENCY_EASY == 0
+							&& gameState2_easy.getLivesRemaining() < MAX_LIVES_EASY;
+					currentScreen = new GameScreen2(gameState_easy, gameState2_easy, gameSettings_easy.get(gameState_easy.getLevel() - 1),
+							bonusLife, width, height, FPS);
 
+					LOGGER.info("Starting Level " + gameState_easy.getLevel() +" with "+ WIDTH + "x" + HEIGHT
+							+ " game screen at " + FPS + " fps.");
+					frame.setScreen(currentScreen);
+					LOGGER.info("Closing game screen. Next Level is :" + gameState_easy.getLevel() + 1);
+
+					gameState_easy = ((GameScreen2) currentScreen).getGameState();
+
+					gameState_easy = new GameState(gameState_easy.getLevel() + 1,
+							DIFFICULTY_EASY,
+							gameState_easy.getScore(),
+							gameState_easy.getLivesRemaining(),
+							gameState_easy.getBulletsShot(),
+							gameState_easy.getShipsDestroyed());
+
+					} while (gameState_easy.getLivesRemaining() > 0
+							&& gameState_easy.getLevel() <= NUM_LEVELS_EASY);
+
+					LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
+							+ " score screen at " + FPS + " fps, with a score of "
+							+ gameState_easy.getScore() + ", "
+							+ gameState_easy.getLivesRemaining() + " lives remaining, "
+							+ gameState_easy.getBulletsShot() + " bullets shot and "
+							+ gameState_easy.getShipsDestroyed() + " ships destroyed.");
+					currentScreen = new ScoreScreen(width, height, FPS, gameState_easy);
+					returnCode = frame.setScreen(currentScreen);
+					LOGGER.info("Closing score screen.");
+					break;
+
+
+
+			/** Normal Level Game */
+			case 9:
+				// Game & score.
+				do {
+					// One extra live every few levels.
+					boolean bonusLife = gameState_normal.getLevel()
+							% EXTRA_LIFE_FRECUENCY_NORMAL == 0
+							&& gameState_normal.getLivesRemaining() < MAX_LIVES_NORMAL;
+					
+					boolean bonusLife2 = gameState_normal.getLevel()
+							% EXTRA_LIFE_FRECUENCY_NORMAL == 0
+							&& gameState_normal.getLivesRemaining() < MAX_LIVES_NORMAL;
+
+					currentScreen = new GameScreen2(gameState_normal, gameState2_normal,
+							gameSettings_normal.get(gameState_normal.getLevel() - 1),
+							bonusLife, width, height, FPS);
+
+					LOGGER.info("Starting Level " + gameState_normal.getLevel() +" with "+ WIDTH + "x" + HEIGHT
+							+ " game screen at " + FPS + " fps.");
+					frame.setScreen(currentScreen);
+					LOGGER.info("Closing game screen. Next Level is :" + gameState_normal.getLevel() + 1);
+
+					gameState_normal = ((GameScreen2) currentScreen).getGameState();
+
+					gameState_normal = new GameState(gameState_normal.getLevel() + 1,
+							DIFFICULTY_NORMAL,
+							gameState_normal.getScore(),
+							gameState_normal.getLivesRemaining(),
+							gameState_normal.getBulletsShot(),
+							gameState_normal.getShipsDestroyed());
+
+				} while (gameState_normal.getLivesRemaining() > 0
+						&& gameState_normal.getLevel() <= NUM_LEVELS);
+
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
+						+ " score screen at " + FPS + " fps, with a score of "
+						+ gameState_normal.getScore() + ", "
+						+ gameState_normal.getLivesRemaining() + " lives remaining, "
+						+ gameState_normal.getBulletsShot() + " bullets shot and "
+						+ gameState_normal.getShipsDestroyed() + " ships destroyed.");
+				currentScreen = new ScoreScreen(width, height, FPS, gameState_normal);
+				returnCode = frame.setScreen(currentScreen);
+				LOGGER.info("Closing score screen.");
+				break;
+
+			/** hard **/
+			case 10:
+					// Game & score.
+				do {
+					boolean bonusLife = gameState_hard.getLevel()
+							% EXTRA_LIFE_FRECUENCY_HARD == 0
+							&& gameState_hard.getLivesRemaining() < MAX_LIVES_HARD;
+					
+					boolean bonusLife2 = gameState_hard.getLevel()
+							% EXTRA_LIFE_FRECUENCY_HARD == 0
+							&& gameState_hard.getLivesRemaining() < MAX_LIVES_HARD;
+
+					currentScreen = new GameScreen2(gameState_hard, gameState2_hard,
+							gameSettings_hard.get(gameState_hard.getLevel() - 1),
+							bonusLife, width, height, FPS);
+
+					LOGGER.info("Starting Level " + gameState_hard.getLevel() +" with "+ WIDTH + "x" + HEIGHT
+							+ " game screen at " + FPS + " fps.");
+					frame.setScreen(currentScreen);
+					LOGGER.info("Closing game screen. Next Level is :" + gameState_hard.getLevel() + 1);
+
+					gameState_hard = ((GameScreen2) currentScreen).getGameState();
+
+					gameState_hard = new GameState(gameState_hard.getLevel() + 1,
+							DIFFICULTY_HARD,
+							gameState_hard.getScore(),
+							gameState_hard.getLivesRemaining(),
+							gameState_hard.getBulletsShot(),
+							gameState_hard.getShipsDestroyed());
+
+				} while (gameState_hard.getLivesRemaining() > 0
+							&& gameState_hard.getLevel() <= NUM_LEVELS);
+
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
+						+ " score screen at " + FPS + " fps, with a score of "
+						+ gameState_hard.getScore() + ", "
+						+ gameState_hard.getLivesRemaining() + " lives remaining, "
+						+ gameState_hard.getBulletsShot() + " bullets shot and "
+						+ gameState_hard.getShipsDestroyed() + " ships destroyed.");
+				currentScreen = new ScoreScreen(width, height, FPS, gameState_hard);
+				returnCode = frame.setScreen(currentScreen);
+				LOGGER.info("Closing score screen.");
+				break;
 
 
 			case 3:
