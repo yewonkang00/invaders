@@ -203,6 +203,7 @@ public final class Core {
 		
 		GameState gameState_normal;
 		GameState gameState_easy;
+		GameState gameState_easy2;
 		GameState gameState_hard;
 		GameState2 gameState2_normal;
 		GameState2 gameState2_easy;
@@ -214,9 +215,10 @@ public final class Core {
 //			gameState = new GameState(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0);
 			gameState_normal = new GameState(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0); // normal�뿉�꽌 level_1�뒗 �떎�젣�젅踰� 4
 			gameState_easy = new GameState(1, DIFFICULTY_EASY, 0,  MAX_LIVES_EASY, 0, 0);
+			gameState_easy2 = new GameState(1, DIFFICULTY_EASY, 0,  MAX_LIVES, 0, 0);
 			gameState_hard = new GameState(1, DIFFICULTY_HARD, 0,  MAX_LIVES_HARD, 0, 0);
 			gameState2_normal = new GameState2(1, DIFFICULTY_NORMAL, 0,  MAX_LIVES, 0, 0); // normal�뿉�꽌 level_1�뒗 �떎�젣�젅踰� 4
-			gameState2_easy = new GameState2(1, DIFFICULTY_EASY, 0,  MAX_LIVES_EASY, 0, 0);
+			gameState2_easy = new GameState2(1, DIFFICULTY_EASY, 0,  MAX_LIVES, 0, 0);
 			gameState2_hard = new GameState2(1, DIFFICULTY_HARD, 0,  MAX_LIVES_HARD, 0, 0);
 
 			switch (returnCode) {
@@ -387,13 +389,13 @@ public final class Core {
 			case 8:
 				do {
 					// One extra live every few levels.
-					boolean bonusLife = gameState_easy.getLevel()
+					boolean bonusLife = gameState_easy2.getLevel()
 							% EXTRA_LIFE_FRECUENCY_EASY == 0
-							&& gameState_easy.getLivesRemaining() < 3;
+							&& gameState_easy.getLivesRemaining() < MAX_LIVES;
 					boolean bonusLife2 = gameState2_easy.getLevel()
 							% EXTRA_LIFE_FRECUENCY_EASY == 0
-							&& gameState2_easy.getLivesRemaining() < 3;
-					currentScreen = new GameScreen2(gameState_easy, gameState2_easy, gameSettings_easy.get(gameState_easy.getLevel() - 1),
+							&& gameState2_easy.getLivesRemaining() < MAX_LIVES;
+					currentScreen = new GameScreen2(gameState_easy2, gameState2_easy, gameSettings_easy.get(gameState_easy2.getLevel() - 1),
 							bonusLife, bonusLife2, width, height, FPS);
 
 					LOGGER.info("Starting Level " + gameState_easy.getLevel() +" with "+ WIDTH + "x" + HEIGHT
@@ -401,15 +403,15 @@ public final class Core {
 					frame.setScreen(currentScreen);
 					LOGGER.info("Closing game screen. Next Level is :" + gameState_easy.getLevel() + 1);
 
-					gameState_easy = ((GameScreen2) currentScreen).getGameState();
+					gameState_easy2 = ((GameScreen2) currentScreen).getGameState();
 					gameState2_easy = ((GameScreen2) currentScreen).getGameState2();
 
-					gameState_easy = new GameState(gameState_easy.getLevel() + 1,
+					gameState_easy2 = new GameState(gameState_easy2.getLevel() + 1,
 							DIFFICULTY_EASY,
-							gameState_easy.getScore(),
-							gameState_easy.getLivesRemaining(),
-							gameState_easy.getBulletsShot(),
-							gameState_easy.getShipsDestroyed());
+							gameState_easy2.getScore(),
+							gameState_easy2.getLivesRemaining(),
+							gameState_easy2.getBulletsShot(),
+							gameState_easy2.getShipsDestroyed());
 					gameState2_easy = new GameState2(gameState2_easy.getLevel() + 1,
 							DIFFICULTY_EASY,
 							gameState2_easy.getScore(),
@@ -417,8 +419,8 @@ public final class Core {
 							gameState2_easy.getBulletsShot(),
 							gameState2_easy.getShipsDestroyed());
 
-					} while ((gameState2_easy.getLivesRemaining() > 0 || gameState_easy.getLivesRemaining() > 0)
-							&& gameState_easy.getLevel() <= NUM_LEVELS_EASY);
+					} while ((gameState2_easy.getLivesRemaining() > 0 || gameState_easy2.getLivesRemaining() > 0)
+							&& gameState_easy2.getLevel() <= NUM_LEVELS_EASY);
 
 					LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
 							+ " score screen at " + FPS + " fps, with a score of "
