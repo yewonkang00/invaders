@@ -387,14 +387,14 @@ public final class Core {
 			case 8:
 				do {
 					// One extra live every few levels.
-					boolean bonusLife = gameState2_easy.getLevel()
+					boolean bonusLife = gameState_easy.getLevel()
 							% EXTRA_LIFE_FRECUENCY_EASY == 0
-							&& gameState2_easy.getLivesRemaining() < MAX_LIVES_EASY;
+							&& gameState_easy.getLivesRemaining() < 3;
 					boolean bonusLife2 = gameState2_easy.getLevel()
 							% EXTRA_LIFE_FRECUENCY_EASY == 0
-							&& gameState2_easy.getLivesRemaining() < MAX_LIVES_EASY;
+							&& gameState2_easy.getLivesRemaining() < 3;
 					currentScreen = new GameScreen2(gameState_easy, gameState2_easy, gameSettings_easy.get(gameState_easy.getLevel() - 1),
-							bonusLife, width, height, FPS);
+							bonusLife, bonusLife2, width, height, FPS);
 
 					LOGGER.info("Starting Level " + gameState_easy.getLevel() +" with "+ WIDTH + "x" + HEIGHT
 							+ " game screen at " + FPS + " fps.");
@@ -442,13 +442,13 @@ public final class Core {
 							% EXTRA_LIFE_FRECUENCY_NORMAL == 0
 							&& gameState_normal.getLivesRemaining() < MAX_LIVES_NORMAL;
 					
-					boolean bonusLife2 = gameState_normal.getLevel()
+					boolean bonusLife2 = gameState2_normal.getLevel()
 							% EXTRA_LIFE_FRECUENCY_NORMAL == 0
-							&& gameState_normal.getLivesRemaining() < MAX_LIVES_NORMAL;
+							&& gameState2_normal.getLivesRemaining() < MAX_LIVES_NORMAL;
 
 					currentScreen = new GameScreen2(gameState_normal, gameState2_normal,
 							gameSettings_normal.get(gameState_normal.getLevel() - 1),
-							bonusLife, width, height, FPS);
+							bonusLife, bonusLife2, width, height, FPS);
 
 					LOGGER.info("Starting Level " + gameState_normal.getLevel() +" with "+ WIDTH + "x" + HEIGHT
 							+ " game screen at " + FPS + " fps.");
@@ -493,13 +493,13 @@ public final class Core {
 							% EXTRA_LIFE_FRECUENCY_HARD == 0
 							&& gameState_hard.getLivesRemaining() < MAX_LIVES_HARD;
 					
-					boolean bonusLife2 = gameState_hard.getLevel()
+					boolean bonusLife2 = gameState2_hard.getLevel()
 							% EXTRA_LIFE_FRECUENCY_HARD == 0
-							&& gameState_hard.getLivesRemaining() < MAX_LIVES_HARD;
+							&& gameState2_hard.getLivesRemaining() < MAX_LIVES_HARD;
 
 					currentScreen = new GameScreen2(gameState_hard, gameState2_hard,
 							gameSettings_hard.get(gameState_hard.getLevel() - 1),
-							bonusLife, width, height, FPS);
+							bonusLife, bonusLife2, width, height, FPS);
 
 					LOGGER.info("Starting Level " + gameState_hard.getLevel() +" with "+ WIDTH + "x" + HEIGHT
 							+ " game screen at " + FPS + " fps.");
