@@ -101,7 +101,7 @@ public class GameScreen2 extends Screen {
 	 *            Frames per second, frame rate at which the game is run.
 	 */
 	public GameScreen2(final GameState gameState, final GameState2 gameState2,
-			final GameSettings gameSettings, final boolean bonusLife,
+			final GameSettings gameSettings, final boolean bonusLife, final boolean bonusLife2,
 			final int width, final int height, final int fps) {
 		super(width, height, fps);
 
@@ -155,8 +155,7 @@ public class GameScreen2 extends Screen {
 	 */
 	public final int run() {
 		super.run();
-
-		this.score += LIFE_SCORE * (this.lives - 1);
+		this.score += LIFE_SCORE * (Math.max(this.lives, this.lives2) - 1);
 		this.logger.info("Screen cleared with a score of " + this.score);
 
 		return this.returnCode;
