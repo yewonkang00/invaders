@@ -17,6 +17,7 @@ import entity.EnemyShipFormation;
 import entity.Entity;
 import entity.Ship;
 import engine.Frame;
+
 /**
  * Implements the game screen, where the action happens.
  * 
@@ -150,17 +151,18 @@ public class GameScreen extends Screen {
 
 		return this.returnCode;
 	}
-	
+
 	/**
 	 * Updates the elements on screen and checks for events.
 	 */
 	protected final void update() {
 		super.update();
+
 		if (this.inputDelay.checkFinished() && !this.levelFinished) {
-			//¿œΩ√¡ﬂ¡ˆ ±‚¥…
+
 			if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 				try {
-					Thread.sleep(1000); //1√ 
+					Thread.sleep(1000); //1√É√ä
 					PauseScreen current = new PauseScreen(448, 400, 60);
 					//int rectWidth = current.getWidth();
 					//int rectHeight = 620/6;
@@ -172,7 +174,7 @@ public class GameScreen extends Screen {
 					e.printStackTrace();
 				}
 			}
-					
+			
 			if (!this.ship.isDestroyed()) {
 				boolean moveRight = inputManager.isKeyDown(KeyEvent.VK_RIGHT)
 						|| inputManager.isKeyDown(KeyEvent.VK_D);

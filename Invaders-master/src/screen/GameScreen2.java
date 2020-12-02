@@ -238,18 +238,18 @@ public class GameScreen2 extends Screen {
 		cleanBullets();
 		draw();
 
-		if ((this.enemyShipFormation.isEmpty() || this.lives2 == 0)
+		if (this.lives2 == 0) {
+			this.ship2.destroy();
+		}
+		if (this.lives == 0) {
+			this.ship.destroy();
+		}		
+		if ((this.enemyShipFormation.isEmpty() || (this.lives2 == 0 && this.lives == 0))
 				&& !this.levelFinished) {
-			if(this.lives == 0) {
+			
 				this.levelFinished = true;
 				this.screenFinishedCooldown.reset();
-			}
-		} else if ((this.enemyShipFormation.isEmpty() || this.lives == 0)
-				&& !this.levelFinished) {
-			if(this.lives2 == 0) {
-				this.levelFinished = true;
-				this.screenFinishedCooldown.reset();
-			}
+		
 		}
 
 		if (this.levelFinished && this.screenFinishedCooldown.checkFinished())
