@@ -17,6 +17,7 @@ import entity.EnemyShipFormation;
 import entity.Entity;
 import entity.Ship;
 import engine.Frame;
+import screen.PauseScreen;
 
 /**
  * Implements the game screen, where the action happens.
