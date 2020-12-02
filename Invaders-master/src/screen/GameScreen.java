@@ -1,5 +1,7 @@
 package screen;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +16,7 @@ import entity.EnemyShip;
 import entity.EnemyShipFormation;
 import entity.Entity;
 import entity.Ship;
+import engine.Frame;
 
 /**
  * Implements the game screen, where the action happens.
@@ -75,7 +78,9 @@ public class GameScreen extends Screen {
 	private boolean bonusLife;
 
 	private String difficulty;
-
+	
+	/** Buffer Graphics. */
+	private static Graphics backBufferGraphics;
 	/**
 	 * Constructor, establishes the properties of the screen.
 	 * 
@@ -155,6 +160,21 @@ public class GameScreen extends Screen {
 
 		if (this.inputDelay.checkFinished() && !this.levelFinished) {
 
+			if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
+				try {
+					Thread.sleep(1000); //1ÃÊ
+					PauseScreen current = new PauseScreen(448, 400, 60);
+					//int rectWidth = current.getWidth();
+					//int rectHeight = 620/6;
+					//backBufferGraphics.fillRect(0, 620 / 2 - rectHeight / 2,rectWidth, rectHeight);
+					current.run();
+					if(current.run()==0) this.lives=0;
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			if (!this.ship.isDestroyed()) {
 				boolean moveRight = inputManager.isKeyDown(KeyEvent.VK_RIGHT)
 						|| inputManager.isKeyDown(KeyEvent.VK_D);
