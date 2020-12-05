@@ -1,5 +1,6 @@
 package screen;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Collections;
@@ -171,13 +172,16 @@ public class ScoreScreen extends Screen {
 
 		drawManager.drawGameOver(this, this.inputDelay.checkFinished(),
 				this.isNewRecord);
-		drawManager.drawResults(this, this.score, this.livesRemaining,
-				this.shipsDestroyed, (float) this.shipsDestroyed
-						/ this.bulletsShot, this.isNewRecord);
 
-		if (this.isNewRecord)
+		if (this.isNewRecord) {
+			drawManager.drawResults(this, this.score, this.livesRemaining,
+					this.shipsDestroyed, (float) this.shipsDestroyed
+							/ this.bulletsShot, this.isNewRecord, Color.RED);
 			drawManager.drawNameInput(this, this.name, this.nameCharSelected);
-
+		}
+		else drawManager.drawResults(this, this.score, this.livesRemaining,
+				this.shipsDestroyed, (float) this.shipsDestroyed
+						/ this.bulletsShot, this.isNewRecord, Color.WHITE);
 		drawManager.completeDrawing(this);
 	}
 }
