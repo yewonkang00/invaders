@@ -209,6 +209,7 @@ public final class Core {
 		GameState2 gameState2_easy;
 		GameState2 gameState2_hard;
 
+		Musicmanager.Sound("c:/Space_Invaders_Music.ogg.wav", true);
 
 		int returnCode = 1;
 		do {
