@@ -155,7 +155,7 @@ public class GameScreen2 extends Screen {
 	 */
 	public final int run() {
 		super.run();
-		this.score += LIFE_SCORE * (Math.max(this.lives, this.lives2) - 1);
+		this.score += LIFE_SCORE * (Math.max(this.lives, this.lives2));
 		this.logger.info("Screen cleared with a score of " + this.score);
 
 		return this.returnCode;
@@ -171,7 +171,7 @@ public class GameScreen2 extends Screen {
 			
 			if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 				try {
-					Thread.sleep(1000); //1ÃÊ
+					Thread.sleep(10); //1ÃÊ
 					PauseScreen current = new PauseScreen(448, 400, 60);
 					//int rectWidth = current.getWidth();
 					//int rectHeight = 620/6;

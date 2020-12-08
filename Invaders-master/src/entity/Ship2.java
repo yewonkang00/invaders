@@ -66,10 +66,10 @@ public class Ship2 extends Entity {
 	 *            List of bullets on screen, to add the new bullet.
 	 * @return Checks if the bullet was shot correctly.
 	 */
-	public final boolean shoot(final Set<Bullet> bullets) {
+	public final boolean shoot(final Set<Bullet> bullets2) {
 		if (this.shootingCooldown.checkFinished()) {
 			this.shootingCooldown.reset();
-			bullets.add(BulletPool.getBullet(positionX + this.width / 2,
+			bullets2.add(BulletPool.getBullet(positionX + this.width / 2,
 					positionY, BULLET_SPEED));
 			return true;
 		}
