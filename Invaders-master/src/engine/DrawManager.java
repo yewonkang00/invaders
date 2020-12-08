@@ -399,7 +399,7 @@ public final class DrawManager {
 	 */
 	public void drawResults(final Screen screen, final int score,
 			final int livesRemaining, final int shipsDestroyed,
-			final float accuracy, final boolean isNewRecord) {
+			final float accuracy, final boolean isNewRecord, final Color color) {
 		String scoreString = String.format("score %04d", score);
 		String livesRemainingString = "lives remaining " + livesRemaining;
 		String shipsDestroyedString = "enemies destroyed " + shipsDestroyed;
@@ -408,7 +408,7 @@ public final class DrawManager {
 
 		int height = isNewRecord ? 4 : 2;
 
-		backBufferGraphics.setColor(Color.WHITE);
+		backBufferGraphics.setColor(color);
 		drawCenteredRegularString(screen, scoreString, screen.getHeight()
 				/ height);
 		drawCenteredRegularString(screen, livesRemainingString,
