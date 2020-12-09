@@ -392,17 +392,17 @@ public final class Core {
 					// One extra live every few levels.
 					boolean bonusLife = gameState_easy2.getLevel()
 							% EXTRA_LIFE_FRECUENCY_EASY == 0
-							&& gameState_easy.getLivesRemaining() < MAX_LIVES;
+							&& gameState_easy2.getLivesRemaining() < MAX_LIVES;
 					boolean bonusLife2 = gameState2_easy.getLevel()
 							% EXTRA_LIFE_FRECUENCY_EASY == 0
 							&& gameState2_easy.getLivesRemaining() < MAX_LIVES;
 					currentScreen = new GameScreen2(gameState_easy2, gameState2_easy, gameSettings_easy.get(gameState_easy2.getLevel() - 1),
 							bonusLife, bonusLife2, width, height, FPS);
 
-					LOGGER.info("Starting Level " + gameState_easy.getLevel() +" with "+ WIDTH + "x" + HEIGHT
+					LOGGER.info("Starting Level " + gameState_easy2.getLevel() +" with "+ WIDTH + "x" + HEIGHT
 							+ " game screen at " + FPS + " fps.");
 					frame.setScreen(currentScreen);
-					LOGGER.info("Closing game screen. Next Level is :" + gameState_easy.getLevel() + 1);
+					LOGGER.info("Closing game screen. Next Level is :" + gameState_easy2.getLevel() + 1);
 
 					gameState_easy2 = ((GameScreen2) currentScreen).getGameState();
 					gameState2_easy = ((GameScreen2) currentScreen).getGameState2();
@@ -425,11 +425,11 @@ public final class Core {
 
 					LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
 							+ " score screen at " + FPS + " fps, with a score of "
-							+ gameState_easy.getScore() + ", "
-							+ gameState_easy.getLivesRemaining() + " lives remaining, "
-							+ gameState_easy.getBulletsShot() + " bullets shot and "
-							+ gameState_easy.getShipsDestroyed() + " ships destroyed.");
-					currentScreen = new ScoreScreen2(width, height, FPS, gameState_easy);
+							+ gameState_easy2.getScore() + ", "
+							+ gameState_easy2.getLivesRemaining() + " lives remaining, "
+							+ gameState_easy2.getBulletsShot() + " bullets shot and "
+							+ gameState_easy2.getShipsDestroyed() + " ships destroyed.");
+					currentScreen = new ScoreScreen2(width, height, FPS, gameState_easy2);
 					returnCode = frame.setScreen(currentScreen);
 					LOGGER.info("Closing score screen.");
 					break;
