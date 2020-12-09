@@ -17,7 +17,7 @@ import engine.Score;
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
  */
-public class ScoreScreen extends Screen {
+public class ScoreScreen2 extends Screen {
 
 	/** Milliseconds between changes in user selection. */
 	private static final int SELECTION_TIME = 200;
@@ -48,6 +48,7 @@ public class ScoreScreen extends Screen {
 	private Cooldown selectionCooldown;
 	/** Game State */
 	private String gameState;
+
 	/**
 	 * Constructor, establishes the properties of the screen.
 	 * 
@@ -60,7 +61,7 @@ public class ScoreScreen extends Screen {
 	 * @param gameState
 	 *            Current game state.
 	 */
-	public ScoreScreen(final int width, final int height, final int fps,
+	public ScoreScreen2(final int width, final int height, final int fps,
 			final GameState gameState) {
 		super(width, height, fps);
 
@@ -115,15 +116,15 @@ public class ScoreScreen extends Screen {
 			} else if (inputManager.isKeyDown(KeyEvent.VK_SPACE)) {
 				// Play again.
 				if(this.gameState == "E") {
-					this.returnCode = 4;
+					this.returnCode = 8;
 					this.isRunning = false;
 				}
 				else if(this.gameState == "N") {
-					this.returnCode = 5;
+					this.returnCode = 9;
 					this.isRunning = false;
 				}
 				else if(this.gameState == "H") {
-					this.returnCode = 6;
+					this.returnCode = 10;
 					this.isRunning = false;
 				}
 				

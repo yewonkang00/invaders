@@ -429,7 +429,7 @@ public final class Core {
 							+ gameState_easy.getLivesRemaining() + " lives remaining, "
 							+ gameState_easy.getBulletsShot() + " bullets shot and "
 							+ gameState_easy.getShipsDestroyed() + " ships destroyed.");
-					currentScreen = new ScoreScreen(width, height, FPS, gameState_easy);
+					currentScreen = new ScoreScreen2(width, height, FPS, gameState_easy);
 					returnCode = frame.setScreen(currentScreen);
 					LOGGER.info("Closing score screen.");
 					break;
@@ -483,7 +483,7 @@ public final class Core {
 						+ gameState_normal.getLivesRemaining() + " lives remaining, "
 						+ gameState_normal.getBulletsShot() + " bullets shot and "
 						+ gameState_normal.getShipsDestroyed() + " ships destroyed.");
-				currentScreen = new ScoreScreen(width, height, FPS, gameState_normal);
+				currentScreen = new ScoreScreen2(width, height, FPS, gameState_normal);
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing score screen.");
 				break;
@@ -534,7 +534,7 @@ public final class Core {
 						+ gameState_hard.getLivesRemaining() + " lives remaining, "
 						+ gameState_hard.getBulletsShot() + " bullets shot and "
 						+ gameState_hard.getShipsDestroyed() + " ships destroyed.");
-				currentScreen = new ScoreScreen(width, height, FPS, gameState_hard);
+				currentScreen = new ScoreScreen2(width, height, FPS, gameState_hard);
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing score screen.");
 				break;
