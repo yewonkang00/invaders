@@ -2,11 +2,14 @@ package screen;
 
 import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import engine.Core;
+import engine.FileManager;
 import engine.Score;
 
 /**
@@ -66,7 +69,16 @@ public class HighScoreScreen extends Screen {
 		if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 			BufferedWriter file = null;
 			try {
-				file = new BufferedWriter(new FileWriter("scores"));
+				String jarPath = FileManager.class.getProtectionDomain()
+						.getCodeSource().getLocation().getPath();
+				jarPath = URLDecoder.decode(jarPath, "UTF-8");
+
+				String scoresPath = new File(jarPath).getParent();
+				scoresPath += File.separator;
+				scoresPath += "scores";
+				File scoresFile = new File(scoresPath);
+				
+				file = new BufferedWriter(new FileWriter("scores")); // "./res/scores" your file road
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
