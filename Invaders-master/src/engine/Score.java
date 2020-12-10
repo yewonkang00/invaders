@@ -12,6 +12,8 @@ public class Score implements Comparable<Score> {
 	private String name;
 	/** Score points. */
 	private int score;
+	
+	private String diffi;
 
 	/**
 	 * Constructor.
@@ -21,9 +23,10 @@ public class Score implements Comparable<Score> {
 	 * @param score
 	 *            Player score.
 	 */
-	public Score(final String name, final int score) {
+	public Score(final String name, final int score,final String diffi) {
 		this.name = name;
 		this.score = score;
+		this.diffi = diffi;
 	}
 
 	/**
@@ -34,7 +37,11 @@ public class Score implements Comparable<Score> {
 	public final String getName() {
 		return this.name;
 	}
-
+	
+	public final String getDiffi() {
+		return this.diffi;
+	}
+	
 	/**
 	 * Getter for the player's score.
 	 * 
