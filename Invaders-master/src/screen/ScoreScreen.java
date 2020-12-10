@@ -1,5 +1,6 @@
 package screen;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Collections;
@@ -47,7 +48,8 @@ public class ScoreScreen extends Screen {
 	private int nameCharSelected;
 	/** Time between changes in user selection. */
 	private Cooldown selectionCooldown;
-
+	/** Game State */
+	private String gameState;
 	/**
 	 * Constructor, establishes the properties of the screen.
 	 * 
@@ -73,13 +75,9 @@ public class ScoreScreen extends Screen {
 		this.nameCharSelected = 0;
 		this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
 		this.selectionCooldown.reset();
-<<<<<<< Updated upstream
-
-=======
 		this.gameState = gameState.getDifficulty();
 		this.diffi = gameState.getDifficulty();
 		
->>>>>>> Stashed changes
 		try {
 			this.highScores = Core.getFileManager().loadHighScores();
 			if (highScores.size() < MAX_HIGH_SCORE_NUM
@@ -119,8 +117,19 @@ public class ScoreScreen extends Screen {
 					saveScore();
 			} else if (inputManager.isKeyDown(KeyEvent.VK_SPACE)) {
 				// Play again.
-				this.returnCode = 2;
-				this.isRunning = false;
+				if(this.gameState == "E") {
+					this.returnCode = 4;
+					this.isRunning = false;
+				}
+				else if(this.gameState == "N") {
+					this.returnCode = 5;
+					this.isRunning = false;
+				}
+				else if(this.gameState == "H") {
+					this.returnCode = 6;
+					this.isRunning = false;
+				}
+				
 				if (this.isNewRecord)
 					saveScore();
 			}
@@ -179,13 +188,16 @@ public class ScoreScreen extends Screen {
 
 		drawManager.drawGameOver(this, this.inputDelay.checkFinished(),
 				this.isNewRecord);
-		drawManager.drawResults(this, this.score, this.livesRemaining,
-				this.shipsDestroyed, (float) this.shipsDestroyed
-						/ this.bulletsShot, this.isNewRecord);
 
-		if (this.isNewRecord)
+		if (this.isNewRecord) {
+			drawManager.drawResults(this, this.score, this.livesRemaining,
+					this.shipsDestroyed, (float) this.shipsDestroyed
+							/ this.bulletsShot, this.isNewRecord, Color.RED);
 			drawManager.drawNameInput(this, this.name, this.nameCharSelected);
-
+		}
+		else drawManager.drawResults(this, this.score, this.livesRemaining,
+				this.shipsDestroyed, (float) this.shipsDestroyed
+						/ this.bulletsShot, this.isNewRecord, Color.WHITE);
 		drawManager.completeDrawing(this);
 	}
 }

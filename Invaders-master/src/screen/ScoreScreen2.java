@@ -43,11 +43,14 @@ public class ScoreScreen2 extends Screen {
 	/** Player name for record input. */
 	private char[] name;
 	/** Player diffi for record input. */
-	private char[] diffi;
+	private String diffi;
 	/** Character of players name selected for change. */
 	private int nameCharSelected;
 	/** Time between changes in user selection. */
 	private Cooldown selectionCooldown;
+
+	/** Game State */
+	private String gameState;
 
 	/**
 	 * Constructor, establishes the properties of the screen.
@@ -74,6 +77,8 @@ public class ScoreScreen2 extends Screen {
 		this.nameCharSelected = 0;
 		this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
 		this.selectionCooldown.reset();
+		this.gameState = gameState.getDifficulty();
+    this.diffi = gameState.getDifficulty();
 
 		try {
 			this.highScores = Core.getFileManager().loadHighScores();
@@ -114,8 +119,21 @@ public class ScoreScreen2 extends Screen {
 					saveScore();
 			} else if (inputManager.isKeyDown(KeyEvent.VK_SPACE)) {
 				// Play again.
-				this.returnCode = 2;
-				this.isRunning = false;
+
+				if(this.gameState == "E") {
+					this.returnCode = 8;
+					this.isRunning = false;
+				}
+				else if(this.gameState == "N") {
+					this.returnCode = 9;
+					this.isRunning = false;
+				}
+				else if(this.gameState == "H") {
+					this.returnCode = 10;
+					this.isRunning = false;
+				}
+				
+
 				if (this.isNewRecord)
 					saveScore();
 			}
@@ -154,7 +172,9 @@ public class ScoreScreen2 extends Screen {
 	 * Saves the score as a high score.
 	 */
 	private void saveScore() {
+
 		highScores.add(new Score(new String(this.name), score,new String(this.diffi)));
+
 		Collections.sort(highScores);
 		if (highScores.size() > MAX_HIGH_SCORE_NUM)
 			highScores.remove(highScores.size() - 1);
