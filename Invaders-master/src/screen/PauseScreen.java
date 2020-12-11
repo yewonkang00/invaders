@@ -79,7 +79,7 @@ public class PauseScreen extends Screen {
 	}
 
 	private void nextMenuItem() {
-        if (num == 0) //0ÀÌ stop, 1ÀÌ continue
+        if (num == 0) //0ï¿½ï¿½ stop, 1ï¿½ï¿½ continue
             num = 1;
         else {
             num = 0;
