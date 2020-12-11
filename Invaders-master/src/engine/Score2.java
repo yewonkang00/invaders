@@ -6,7 +6,7 @@ package engine;
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
  */
-public class Score implements Comparable<Score> {
+public class Score2 implements Comparable<Score2> {
 
 	/** Player's name. */
 	private String name;
@@ -14,7 +14,7 @@ public class Score implements Comparable<Score> {
 	private int score;
 	
 	private String diffi;
-
+	
 	/**
 	 * Constructor.
 	 * 
@@ -23,7 +23,7 @@ public class Score implements Comparable<Score> {
 	 * @param score
 	 *            Player score.
 	 */
-	public Score(final String name, final int score, final String diffi) {
+	public Score2(final String name, final int score, final String diffi) {
 		this.name = name;
 		this.score = score;
 		this.diffi = diffi;
@@ -60,7 +60,7 @@ public class Score implements Comparable<Score> {
 	 *         smaller, positive if its bigger, zero if its the same.
 	 */
 	@Override
-	public final int compareTo(final Score score) {
+	public final int compareTo(final Score2 score) {
 		int comparison = this.score < score.getScore() ? 1 : this.score > score
 				.getScore() ? -1 : 0;
 		return comparison;
