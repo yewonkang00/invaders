@@ -171,7 +171,6 @@ public class GameScreen2 extends Screen {
 			
 			if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 				try {
-					Thread.sleep(10); //1ÃÊ
 					PauseScreen current = new PauseScreen(448, 400, 60);
 					//int rectWidth = current.getWidth();
 					//int rectHeight = 620/6;
@@ -181,6 +180,7 @@ public class GameScreen2 extends Screen {
 						this.lives=0; 
 						this.lives2=0;
 					}
+					Thread.sleep(1000); // 1 second
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

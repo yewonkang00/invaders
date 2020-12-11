@@ -160,13 +160,16 @@ public class GameScreen extends Screen {
 			//�Ͻ����� ����
 			if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 				try {
-					Thread.sleep(1000); //1 second
 					PauseScreen current = new PauseScreen(448, 400, 60);
 					//int rectWidth = current.getWidth();
 					//int rectHeight = 620/6;
 					//backBufferGraphics.fillRect(0, 620 / 2 - rectHeight / 2,rectWidth, rectHeight);
 					current.run();
-					if(current.run()==0) this.lives=0;
+					if(current.run()==0) {
+						
+						this.lives=0;
+					}
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
