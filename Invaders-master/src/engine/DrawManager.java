@@ -604,7 +604,7 @@ public final class DrawManager {
 			scoreString = String.format("%s     %04d      %s", score.getName(),
 					score.getScore(), score.getDiffi());
 			drawCenteredRegularString(screen, scoreString, screen.getHeight()
-					/ 4 + fontRegularMetrics.getHeight() * (i + 1) * 2);
+					/ 4 + fontRegularMetrics.getHeight() * (i + 3)  );
 			i++;
 		}
 	}
