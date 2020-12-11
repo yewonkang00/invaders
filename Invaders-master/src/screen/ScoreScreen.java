@@ -42,6 +42,8 @@ public class ScoreScreen extends Screen {
 	private boolean isNewRecord;
 	/** Player name for record input. */
 	private char[] name;
+	/** Player diffi for record input. */
+	private String diffi;
 	/** Character of players name selected for change. */
 	private int nameCharSelected;
 	/** Time between changes in user selection. */
@@ -63,7 +65,7 @@ public class ScoreScreen extends Screen {
 	public ScoreScreen(final int width, final int height, final int fps,
 			final GameState gameState) {
 		super(width, height, fps);
-
+		
 		this.score = gameState.getScore();
 		this.livesRemaining = gameState.getLivesRemaining();
 		this.bulletsShot = gameState.getBulletsShot();
@@ -74,6 +76,7 @@ public class ScoreScreen extends Screen {
 		this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
 		this.selectionCooldown.reset();
 		this.gameState = gameState.getDifficulty();
+		this.diffi = gameState.getDifficulty();
 		
 		try {
 			this.highScores = Core.getFileManager().loadHighScores();
@@ -165,7 +168,7 @@ public class ScoreScreen extends Screen {
 	 * Saves the score as a high score.
 	 */
 	private void saveScore() {
-		highScores.add(new Score(new String(this.name), score));
+		highScores.add(new Score(new String(this.name), score,new String(this.diffi)));
 		Collections.sort(highScores);
 		if (highScores.size() > MAX_HIGH_SCORE_NUM)
 			highScores.remove(highScores.size() - 1);
