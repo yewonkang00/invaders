@@ -429,7 +429,7 @@ public final class Core {
 							+ gameState_easy2.getLivesRemaining() + " lives remaining, "
 							+ gameState_easy2.getBulletsShot() + " bullets shot and "
 							+ gameState_easy2.getShipsDestroyed() + " ships destroyed.");
-					currentScreen = new ScoreScreen2(width, height, FPS, gameState_easy2);
+					currentScreen = new ScoreScreen2(width, height, FPS, gameState_easy2, gameState2_easy);
 					returnCode = frame.setScreen(currentScreen);
 					LOGGER.info("Closing score screen.");
 					break;
@@ -483,7 +483,7 @@ public final class Core {
 						+ gameState_normal.getLivesRemaining() + " lives remaining, "
 						+ gameState_normal.getBulletsShot() + " bullets shot and "
 						+ gameState_normal.getShipsDestroyed() + " ships destroyed.");
-				currentScreen = new ScoreScreen2(width, height, FPS, gameState_normal);
+				currentScreen = new ScoreScreen2(width, height, FPS, gameState_normal, gameState2_normal);
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing score screen.");
 				break;
@@ -534,22 +534,41 @@ public final class Core {
 						+ gameState_hard.getLivesRemaining() + " lives remaining, "
 						+ gameState_hard.getBulletsShot() + " bullets shot and "
 						+ gameState_hard.getShipsDestroyed() + " ships destroyed.");
-				currentScreen = new ScoreScreen2(width, height, FPS, gameState_hard);
+				currentScreen = new ScoreScreen2(width, height, FPS, gameState_hard, gameState2_hard);
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing score screen.");
 				break;
 
 
 			case 3:
-				// High scores.
+				// High scores menu.
+				
+				currentScreen = new SelectHighScreen(width, height, FPS);
+				LOGGER.info("select player number");
+				returnCode = frame.setScreen(currentScreen);
+				break;
+				
+			case 12:
+				// High scores 1player.
 				currentScreen = new HighScoreScreen(width, height, FPS);
 				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
 						+ " high score screen at " + FPS + " fps.");
 				returnCode = frame.setScreen(currentScreen);
 				LOGGER.info("Closing high score screen.");
 				break;
+				
+			case 13:
+				// High scores 2player.
+				currentScreen = new HighScoreScreen2(width, height, FPS);
+				LOGGER.info("Starting " + WIDTH + "x" + HEIGHT
+						+ " high score screen at " + FPS + " fps.");
+				returnCode = frame.setScreen(currentScreen);
+				LOGGER.info("Closing high score screen.");
+				break;
+				
 			default:
 				break;
+				
 			}
 
 		} while (returnCode != 0);

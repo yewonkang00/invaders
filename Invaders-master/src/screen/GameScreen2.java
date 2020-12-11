@@ -65,6 +65,7 @@ public class GameScreen2 extends Screen {
 	private Set<Bullet> bullets;
 	/** Current score. */
 	private int score;
+	private int score2;
 	/** Player lives left. */
 	private int lives;
 	private int lives2;
@@ -83,7 +84,14 @@ public class GameScreen2 extends Screen {
 	private boolean bonusLife2;
 
 	private String difficulty;
-
+	
+	/* count player1's bullet*/
+	public int cnt = 0;
+	public int pos = 0;
+	/* count player2's bullet*/
+	public int cnt2 = 0;
+	public int pos2 = 0;
+	
 	/**
 	 * Constructor, establishes the properties of the screen.
 	 * 
@@ -110,6 +118,7 @@ public class GameScreen2 extends Screen {
 		this.bonusLife2 = bonusLife2;
 		this.level = gameState.getLevel();
 		this.score = gameState.getScore();
+		this.score2 = gameState2.getScore();
 		this.lives = gameState.getLivesRemaining();
 		this.lives2 = gameState2.getLivesRemaining();
 		if (this.bonusLife)
@@ -155,8 +164,10 @@ public class GameScreen2 extends Screen {
 	 */
 	public final int run() {
 		super.run();
-		this.score += LIFE_SCORE * (Math.max(this.lives, this.lives2));
+		this.score += LIFE_SCORE * (this.lives);
+		this.score2 += LIFE_SCORE * (this.lives2);
 		this.logger.info("Screen cleared with a score of " + this.score);
+		this.logger.info("Screen cleared with a score of " + this.score2);
 
 		return this.returnCode;
 	}
@@ -171,6 +182,7 @@ public class GameScreen2 extends Screen {
 			
 			if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 				try {
+					Thread.sleep(10); //1ÃÊ
 					PauseScreen current = new PauseScreen(448, 400, 60);
 					//int rectWidth = current.getWidth();
 					//int rectHeight = 620/6;
@@ -180,7 +192,6 @@ public class GameScreen2 extends Screen {
 						this.lives=0; 
 						this.lives2=0;
 					}
-					Thread.sleep(1000); // 1 second
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -203,8 +214,11 @@ public class GameScreen2 extends Screen {
 					this.ship.moveLeft();
 				}
 				if (inputManager.isKeyDown(KeyEvent.VK_SPACE))
-					if (this.ship.shoot(this.bullets))
+					if (this.ship.shoot(this.bullets)) {
+						pos = this.ship.getPositionX();
 						this.bulletsShot++;
+						this.cnt += 1;
+					}
 			}
 
 			if (!this.ship2.isDestroyed()) {
@@ -223,8 +237,11 @@ public class GameScreen2 extends Screen {
 					this.ship2.moveLeft();
 				}
 				if (inputManager.isKeyDown(KeyEvent.VK_SHIFT))
-					if (this.ship2.shoot(this.bullets))
+					if (this.ship2.shoot(this.bullets)) {
+						pos2 = this.ship2.getPositionX();
 						this.bulletsShot2++;
+						this.cnt2 += 1;
+					}
 			}
 			
 			if (this.enemyShipSpecial != null) {
@@ -295,9 +312,9 @@ public class GameScreen2 extends Screen {
 		for (Bullet bullet : this.bullets)
 			drawManager.drawEntity(bullet, bullet.getPositionX(),
 					bullet.getPositionY());
-
 		// Interface.
-		drawManager.drawScore(this, this.score);
+		drawManager.drawScore2(this, this.score);
+		drawManager.drawScore3(this, this.score2);
 		drawManager.drawdifficulty(this,this.difficulty, this.level);
 		drawManager.drawLives(this, this.lives);
 		drawManager.drawLives2(this, this.lives2);
@@ -364,7 +381,7 @@ public class GameScreen2 extends Screen {
 			} else {
 				for (EnemyShip enemyShip : this.enemyShipFormation)
 					if (!enemyShip.isDestroyed()
-							&& checkCollision(bullet, enemyShip)) {
+							&& checkCollision(bullet, enemyShip) && (Math.abs(enemyShip.getPositionX() - pos) <= 24)) {
 						if (this.difficulty.equals("E")) {
 							this.score += enemyShip.getPointValue() * POINT_EASY;
 						}
@@ -372,7 +389,24 @@ public class GameScreen2 extends Screen {
 							this.score += enemyShip.getPointValue() * POINT_HARD;
 						}
 						else this.score += enemyShip.getPointValue();
-
+						System.out.println("!enemyShip.getPositionX() : " + enemyShip.getPositionX());
+						System.out.println("!enemyShipWidth : " + enemyShip.getWidth());
+						System.out.println("!pos : " + pos);
+						this.shipsDestroyed++;
+						this.shipsDestroyed2++;	
+						this.enemyShipFormation.destroy(enemyShip);
+						recyclable.add(bullet);
+					}
+					else if (!enemyShip.isDestroyed()
+							&& checkCollision(bullet, enemyShip) && (Math.abs(enemyShip.getPositionX() - pos2) <= 24)) {
+						if (this.difficulty.equals("E")) {
+							this.score2 += enemyShip.getPointValue() * POINT_EASY;
+						}
+						else if (this.difficulty.equals("H")) {
+							this.score2 += enemyShip.getPointValue() * POINT_HARD;
+						}
+						else this.score2 += enemyShip.getPointValue();
+						System.out.println("!bulletShot2 : " + this.bulletsShot2);
 						this.shipsDestroyed++;
 						this.shipsDestroyed2++;	
 						this.enemyShipFormation.destroy(enemyShip);
@@ -380,7 +414,7 @@ public class GameScreen2 extends Screen {
 					}
 				if (this.enemyShipSpecial != null
 						&& !this.enemyShipSpecial.isDestroyed()
-						&& checkCollision(bullet, this.enemyShipSpecial)) {
+						&& checkCollision(bullet, this.enemyShipSpecial) && (Math.abs(this.enemyShipSpecial.getPositionX() - pos) <= 24)) {
 					if (this.difficulty.equals("E")) {
 						this.score += this.enemyShipSpecial.getPointValue() * POINT_EASY;
 					}
@@ -388,7 +422,25 @@ public class GameScreen2 extends Screen {
 						this.score += this.enemyShipSpecial.getPointValue() * POINT_HARD;
 					}
 					else this.score += this.enemyShipSpecial.getPointValue();
-
+					System.out.println("!enemyShip.getPositionX() : " + this.enemyShipSpecial.getPositionX());
+					System.out.println("!pos : " + pos);
+					this.shipsDestroyed++;
+					this.shipsDestroyed2++;
+					this.enemyShipSpecial.destroy();
+					this.enemyShipSpecialExplosionCooldown.reset();
+					recyclable.add(bullet);
+				}
+				else if (this.enemyShipSpecial != null
+						&& !this.enemyShipSpecial.isDestroyed()
+						&& checkCollision(bullet, this.enemyShipSpecial) && (Math.abs(this.enemyShipSpecial.getPositionX() - pos2) <= 24)) {
+					if (this.difficulty.equals("E")) {
+						this.score2 += this.enemyShipSpecial.getPointValue() * POINT_EASY;
+					}
+					else if (this.difficulty.equals("H")) {
+						this.score2 += this.enemyShipSpecial.getPointValue() * POINT_HARD;
+					}
+					else this.score2 += this.enemyShipSpecial.getPointValue();
+					System.out.println("!bulletShot2 : " + this.bulletsShot2);
 					this.shipsDestroyed++;
 					this.shipsDestroyed2++;
 					this.enemyShipSpecial.destroy();
@@ -436,7 +488,7 @@ public class GameScreen2 extends Screen {
 	}
 	
 	public final GameState2 getGameState2() {
-		return new GameState2(this.level, this.difficulty, this.score, this.lives2,
+		return new GameState2(this.level, this.difficulty, this.score2, this.lives2,
 				this.bulletsShot2, this.shipsDestroyed2);
 	}
 }

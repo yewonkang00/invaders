@@ -150,9 +150,39 @@ public final class FileManager {
 			String name = reader.readLine();
 			String score = reader.readLine();
 			String diffi = reader.readLine();
-			
+
 			while ((name != null) && (score != null) &&(diffi!=null)) {
 				highScore = new Score(name, Integer.parseInt(score),diffi);
+				highScores.add(highScore);
+				name = reader.readLine();
+				score = reader.readLine();
+				diffi = reader.readLine();
+			}
+		} finally {
+			if (inputStream != null)
+				inputStream.close();
+		}
+
+		return highScores;
+	}
+	/* List<Score2> is 2player's score*/
+	private List<Score2> loadDefaultHighScores2() throws IOException {
+		List<Score2> highScores = new ArrayList<Score2>();
+		InputStream inputStream = null;
+		BufferedReader reader = null;
+
+		try {
+			inputStream = FileManager.class.getClassLoader()
+					.getResourceAsStream("scores");
+			reader = new BufferedReader(new InputStreamReader(inputStream));
+
+			Score2 highScore = null;
+			String name = reader.readLine();
+			String score = reader.readLine();
+			String diffi = reader.readLine();
+			
+			while ((name != null) && (score != null)) {
+				highScore = new Score2(name, Integer.parseInt(score), diffi);
 				highScores.add(highScore);
 				name = reader.readLine();
 				score = reader.readLine();
@@ -202,7 +232,7 @@ public final class FileManager {
 			String diffi = bufferedReader.readLine();
 
 			while ((name != null) && (score != null) &&(diffi!=null)) {
-				highScore = new Score(name, Integer.parseInt(score),diffi);
+				highScore = new Score(name, Integer.parseInt(score), diffi);
 				highScores.add(highScore);
 				name = bufferedReader.readLine();
 				score = bufferedReader.readLine();
@@ -213,6 +243,54 @@ public final class FileManager {
 			// loads default if there's no user scores.
 			logger.info("Loading default high scores.");
 			highScores = loadDefaultHighScores();
+		} finally {
+			if (bufferedReader != null)
+				bufferedReader.close();
+		}
+
+		Collections.sort(highScores);
+		return highScores;
+	}
+	
+	public List<Score2> loadHighScores2() throws IOException {
+
+		List<Score2> highScores = new ArrayList<Score2>();
+		InputStream inputStream = null;
+		BufferedReader bufferedReader = null;
+
+		try {
+			String jarPath = FileManager.class.getProtectionDomain()
+					.getCodeSource().getLocation().getPath();
+			jarPath = URLDecoder.decode(jarPath, "UTF-8");
+
+			String scoresPath = new File(jarPath).getParent();
+			scoresPath += File.separator;
+			scoresPath += "scores2";
+
+			File scoresFile = new File(scoresPath);
+			inputStream = new FileInputStream(scoresFile);
+			bufferedReader = new BufferedReader(new InputStreamReader(
+					inputStream, Charset.forName("UTF-8")));
+
+			logger.info("Loading user high scores.");
+
+			Score2 highScore = null;
+			String name = bufferedReader.readLine();
+			String score = bufferedReader.readLine();
+			String diffi = bufferedReader.readLine();
+			
+			while ((name != null) && (score != null)) {
+				highScore = new Score2(name, Integer.parseInt(score), diffi);
+				highScores.add(highScore);
+				name = bufferedReader.readLine();
+				score = bufferedReader.readLine();
+				diffi = bufferedReader.readLine();
+			}
+
+		} catch (FileNotFoundException e) {
+			// loads default if there's no user scores.
+			logger.info("Loading default high scores.");
+			highScores = loadDefaultHighScores2();
 		} finally {
 			if (bufferedReader != null)
 				bufferedReader.close();
@@ -258,6 +336,54 @@ public final class FileManager {
 			// Saves 7 or less scores.
 			int savedCount = 0;
 			for (Score score : highScores) {
+				if (savedCount >= MAX_SCORES)
+					break;
+				bufferedWriter.write(score.getName());
+				bufferedWriter.newLine();
+				bufferedWriter.write(Integer.toString(score.getScore()));
+				bufferedWriter.newLine();
+				if(score.getDiffi().charAt(0)=='E') bufferedWriter.write("EASY");
+				else if(score.getDiffi().charAt(0)=='N') bufferedWriter.write("NORMAL");
+				else if(score.getDiffi().charAt(0)=='H') bufferedWriter.write("HARD");
+				else bufferedWriter.write("HARD");
+				bufferedWriter.newLine();
+				savedCount++;
+			}
+
+		} finally {
+			if (bufferedWriter != null)
+				bufferedWriter.close();
+		}
+	}
+	
+	public void saveHighScores2(final List<Score2> highScores) 
+			throws IOException {
+		OutputStream outputStream = null;
+		BufferedWriter bufferedWriter = null;
+
+		try {
+			String jarPath = FileManager.class.getProtectionDomain()
+					.getCodeSource().getLocation().getPath();
+			jarPath = URLDecoder.decode(jarPath, "UTF-8");
+
+			String scoresPath = new File(jarPath).getParent();
+			scoresPath += File.separator;
+			scoresPath += "scores2";
+
+			File scoresFile = new File(scoresPath);
+
+			if (!scoresFile.exists())
+				scoresFile.createNewFile();
+
+			outputStream = new FileOutputStream(scoresFile);
+			bufferedWriter = new BufferedWriter(new OutputStreamWriter(
+					outputStream, Charset.forName("UTF-8")));
+
+			logger.info("Saving user high scores.");
+
+			// Saves 7 or less scores.
+			int savedCount = 0;
+			for (Score2 score : highScores) {
 				if (savedCount >= MAX_SCORES)
 					break;
 				bufferedWriter.write(score.getName());

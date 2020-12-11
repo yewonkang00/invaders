@@ -7,15 +7,15 @@ import engine.Cooldown;
 import engine.Core;
 
 
-public class SelectDifficultyScreen extends Screen{
+public class SelectHighScreen extends Screen{
 
     private static final int SELECTION_TIME = 200;
     private final Cooldown selectionCooldown;
 
-    public SelectDifficultyScreen(final int width, final int height, final int fps) {
+    public SelectHighScreen(final int width, final int height, final int fps) {
         super(width, height, fps);
 
-        this.returnCode = 4;
+        this.returnCode = 12;
         this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
         this.selectionCooldown.reset();
     }
@@ -48,12 +48,10 @@ public class SelectDifficultyScreen extends Screen{
     }
 
     private void nextMenuItem() {
-        if (this.returnCode == 6)
-            this.returnCode = 11;
-        else if (this.returnCode == 11)
-            this.returnCode = 4;
-        else
-            this.returnCode++;
+        if (this.returnCode == 12)
+            this.returnCode = 13;
+        else if (this.returnCode == 13)
+            this.returnCode = 12;
     }
 
     /**
@@ -61,12 +59,10 @@ public class SelectDifficultyScreen extends Screen{
      */
 
     private void previousMenuItem() {
-        if (this.returnCode == 4)
-            this.returnCode = 11;
-        else if (this.returnCode == 11)
-            this.returnCode = 6;
-        else
-            this.returnCode--;
+        if (this.returnCode == 12)
+            this.returnCode = 13;
+        else if (this.returnCode == 13)
+            this.returnCode = 12;
     }
 
     /**
@@ -75,7 +71,7 @@ public class SelectDifficultyScreen extends Screen{
     private void draw() {
         drawManager.initDrawing(this);
 
-        drawManager.drawSelectDifficulty_1(this, this.returnCode);
+        drawManager.drawSelectHigh(this, this.returnCode);
 //        drawManager.drawMenu(this, this.returnCode);
 
         drawManager.completeDrawing(this);

@@ -2,15 +2,13 @@ package screen;
 
 import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URLDecoder;
 import java.util.List;
 
 import engine.Core;
-import engine.FileManager;
 import engine.Score;
+import engine.Score2;
 
 /**
  * Implements the high scores screen, it shows player records.
@@ -18,10 +16,10 @@ import engine.Score;
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
  * 
  */
-public class HighScoreScreen extends Screen {
+public class HighScoreScreen2 extends Screen {
 
 	/** List of past high scores. */
-	private List<Score> highScores;
+	private List<Score2> highScores;
 
 	/**
 	 * Constructor, establishes the properties of the screen.
@@ -33,13 +31,13 @@ public class HighScoreScreen extends Screen {
 	 * @param fps
 	 *            Frames per second, frame rate at which the game is run.
 	 */
-	public HighScoreScreen(final int width, final int height, final int fps) {
+	public HighScoreScreen2(final int width, final int height, final int fps) {
 		super(width, height, fps);
 
 		this.returnCode = 1;
 
 		try {
-			this.highScores = Core.getFileManager().loadHighScores();
+			this.highScores = Core.getFileManager().loadHighScores2();
 		} catch (NumberFormatException | IOException e) {
 			logger.warning("Couldn't load high scores!");
 		}
@@ -69,7 +67,7 @@ public class HighScoreScreen extends Screen {
 		if (inputManager.isKeyDown(KeyEvent.VK_ESCAPE)){
 			BufferedWriter file = null;
 			try {
-				file = new BufferedWriter(new FileWriter("scores"));
+				file = new BufferedWriter(new FileWriter("scores2"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -91,7 +89,7 @@ public class HighScoreScreen extends Screen {
 		drawManager.initDrawing(this);
 
 		drawManager.drawHighScoreMenu(this);
-		drawManager.drawHighScores(this, this.highScores);
+		drawManager.drawHighScores2(this, this.highScores);
 
 		drawManager.completeDrawing(this);
 	}
