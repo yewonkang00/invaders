@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>engine.Cooldown</OriginalElement>
+  <nodes>
+    <node x="1507.3272516917978" y="2441.0">screen.TitleScreen</node>
+    <node x="1313.2823798969257" y="1999.0">screen.Screen</node>
+    <node x="2428.8327038194575" y="814.0">entity.Ship2</node>
+    <node x="468.0744680851067" y="791.0">engine.FileManager</node>
+    <node x="723.1033505928963" y="518.0">engine.Score</node>
+    <node x="2187.5706027556275" y="1461.0">engine.InputManager</node>
+    <node x="3399.891879351372" y="1999.0">entity.EnemyShip</node>
+    <node x="269.0744680851067" y="2464.0">screen.HighScoreScreen</node>
+    <node x="1190.7823798969257" y="1139.0">engine.DrawManager</node>
+    <node x="2928.5977995904095" y="295.0">entity.Bullet</node>
+    <node x="1709.3272516917978" y="2441.0">screen.SelectHighScreen</node>
+    <node x="1621.6998584439987" y="3723.0">screen.SelectDifficultyScreen2</node>
+    <node x="62.07446808510667" y="2464.0">screen.HighScoreScreen2</node>
+    <node x="2679.4788393344247" y="814.0">entity.Ship</node>
+    <node x="996.1634860773015" y="3030.5">screen.ScoreScreen</node>
+    <node x="2748.213694563553" y="2973.0">screen.GameScreen2</node>
+    <node x="1158.1634860773015" y="3065.0">engine.MinimalFormatter</node>
+    <node x="3259.891879351372" y="2395.0">entity.EnemyShipFormation</node>
+    <node x="2994.4160371527905" y="2441.0">screen.PauseScreen</node>
+    <node x="2988.3061329237426" y="541.0">entity.BulletPool</node>
+    <node x="2663.1243704861236" y="0.0">entity.Entity</node>
+    <node x="2151.8206027556275" y="2429.5">engine.GameState</node>
+    <node x="3676.891879351372" y="2010.5">engine.GameSettings</node>
+    <node x="1678.9498584439987" y="3481.0">engine.Core</node>
+    <node x="1186.7439183584643" y="2441.0">screen.SelectDifficultyScreen</node>
+    <node x="3576.381132923743" y="2984.5">screen.GameScreen</node>
+    <node x="461.1033505928963" y="518.0">engine.Score2</node>
+    <node x="2018.0081027556275" y="3065.0">engine.Musicmanager</node>
+    <node x="665.9997766109382" y="3030.5">screen.ScoreScreen2</node>
+    <node x="1915.3272516917978" y="2441.0">engine.GameState2</node>
+    <node x="2317.3139538194573" y="541.0">engine.Cooldown</node>
+    <node x="1089.7823798969257" y="860.0">engine.Frame</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="engine.FileManager" target="engine.Score2">
+      <point x="-113.25" y="-119.0" />
+      <point x="505.8244680851067" y="771.0" />
+      <point x="531.1033505928963" y="771.0" />
+      <point x="-14.0" y="61.5" />
+    </edge>
+    <edge source="engine.Core" target="screen.TitleScreen">
+      <point x="-17.042553191489333" y="-96.0" />
+      <point x="1795.4073052525093" y="3261.0" />
+      <point x="1595.4868261598829" y="3261.0" />
+      <point x="1595.4868261598829" y="2903.0" />
+      <point x="1552.8272516917978" y="2903.0" />
+      <point x="-45.5" y="73.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.Frame">
+      <point x="-107.93617021276577" y="-96.0" />
+      <point x="1704.513688231233" y="3421.0" />
+      <point x="45.893617021276896" y="3421.0" />
+      <point x="45.893617021276896" y="1959.0" />
+      <point x="197.4366839262293" y="1959.0" />
+      <point x="197.4366839262293" y="1119.0" />
+      <point x="1146.56809418264" y="1119.0" />
+      <point x="-22.71428571428578" y="50.0" />
+    </edge>
+    <edge source="screen.ScoreScreen" target="engine.Core">
+      <point x="35.5" y="61.5" />
+      <point x="1102.6634860773015" y="3301.0" />
+      <point x="1772.6839009971902" y="3301.0" />
+      <point x="-39.76595744680844" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="screen.HighScoreScreen">
+      <point x="-73.85106382978711" y="-96.0" />
+      <point x="1738.5987946142116" y="3361.0" />
+      <point x="360.91489361702133" y="3361.0" />
+      <point x="360.91489361702133" y="2953.0" />
+      <point x="402.5744680851062" y="2953.0" />
+      <point x="44.499999999999545" y="50.0" />
+    </edge>
+    <edge source="entity.Ship" target="engine.Cooldown">
+      <point x="-79.20000000000005" y="-96.0" />
+      <point x="2699.2788393344244" y="731.0" />
+      <point x="2434.1264538194573" y="731.0" />
+      <point x="27.8125" y="38.5" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="engine.Cooldown">
+      <point x="-44.549999999999955" y="-119.0" />
+      <point x="3363.841879351372" y="2305.0" />
+      <point x="3367.391879351372" y="2305.0" />
+      <point x="3367.391879351372" y="711.0" />
+      <point x="2456.3764538194573" y="711.0" />
+      <point x="50.0625" y="38.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="entity.EnemyShipFormation">
+      <point x="-67.92499999999995" y="-107.5" />
+      <point x="3631.956132923743" y="2763.0" />
+      <point x="3467.791879351372" y="2763.0" />
+      <point x="59.39999999999998" y="119.0" />
+    </edge>
+    <edge source="screen.Screen" target="engine.InputManager">
+      <point x="52.5" y="-73.0" />
+      <point x="1428.7823798969257" y="1979.0" />
+      <point x="2236.8206027556275" y="1979.0" />
+      <point x="-49.25" y="73.0" />
+    </edge>
+    <edge source="screen.PauseScreen" target="engine.Core">
+      <point x="0.0" y="73.0" />
+      <point x="3085.4160371527905" y="2883.0" />
+      <point x="3174.863953819457" y="2883.0" />
+      <point x="3174.863953819457" y="3361.0" />
+      <point x="1886.3009222737858" y="3361.0" />
+      <point x="73.85106382978711" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.Cooldown">
+      <point x="45.44680851063822" y="-96.0" />
+      <point x="1857.8966669546369" y="3311.0" />
+      <point x="2400.7514538194573" y="3311.0" />
+      <point x="-5.5625" y="38.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="entity.BulletPool">
+      <point x="55.575000000000045" y="-107.5" />
+      <point x="3755.456132923743" y="2663.0" />
+      <point x="3666.391879351372" y="2663.0" />
+      <point x="3666.391879351372" y="671.0" />
+      <point x="3162.006132923743" y="671.0" />
+      <point x="77.19999999999993" y="38.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="engine.GameSettings">
+      <point x="80.27500000000009" y="-107.5" />
+      <point x="3780.156132923743" y="2953.0" />
+      <point x="3772.891879351372" y="2953.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="screen.SelectDifficultyScreen2" target="engine.Cooldown">
+      <point x="99.19999999999982" y="-73.0" />
+      <point x="1844.8998584439985" y="3703.0" />
+      <point x="3950.1229963726487" y="3703.0" />
+      <point x="3950.1229963726487" y="661.0" />
+      <point x="2489.7514538194573" y="661.0" />
+      <point x="83.4375" y="38.5" />
+    </edge>
+    <edge source="engine.Core" target="screen.GameScreen">
+      <point x="96.57446808510622" y="-96.0" />
+      <point x="1909.0243265291049" y="3401.0" />
+      <point x="3699.881132923743" y="3401.0" />
+      <point x="0.0" y="107.5" />
+    </edge>
+    <edge source="engine.Core" target="engine.GameSettings">
+      <point x="130.65957446808488" y="-96.0" />
+      <point x="1943.1094329120835" y="3461.0" />
+      <point x="3937.952783606691" y="3461.0" />
+      <point x="3937.952783606691" y="2165.0" />
+      <point x="3858.225212684705" y="2165.0" />
+      <point x="85.33333333333326" y="61.5" />
+    </edge>
+    <edge source="engine.DrawManager" target="engine.Frame">
+      <point x="-98.4545454545455" y="-395.0" />
+      <point x="1272.8278344423802" y="1059.0" />
+      <point x="1214.7109513254973" y="1059.0" />
+      <point x="45.42857142857156" y="50.0" />
+    </edge>
+    <edge source="engine.Frame" target="engine.Core">
+      <point x="-68.14285714285734" y="50.0" />
+      <point x="1101.1395227540684" y="1099.0" />
+      <point x="34.53191489361734" y="1099.0" />
+      <point x="34.53191489361734" y="3441.0" />
+      <point x="1693.1519861035733" y="3441.0" />
+      <point x="-119.29787234042533" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.MinimalFormatter">
+      <point x="-34.085106382978665" y="-96.0" />
+      <point x="1778.36475206102" y="3291.0" />
+      <point x="1251.1634860773015" y="3291.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="entity.Ship" target="engine.Core">
+      <point x="28.28571428571422" y="96.0" />
+      <point x="2806.764553620139" y="1119.0" />
+      <point x="3249.391879351372" y="1119.0" />
+      <point x="3249.391879351372" y="3371.0" />
+      <point x="1891.9817733376156" y="3371.0" />
+      <point x="79.53191489361689" y="-96.0" />
+    </edge>
+    <edge source="entity.Ship" target="entity.BulletPool">
+      <point x="79.20000000000005" y="-96.0" />
+      <point x="2857.6788393344245" y="761.0" />
+      <point x="3046.2061329237426" y="761.0" />
+      <point x="-38.60000000000002" y="38.5" />
+    </edge>
+    <edge source="screen.ScoreScreen2" target="engine.Cooldown">
+      <point x="-21.57142857142844" y="-61.5" />
+      <point x="719.9283480395097" y="2883.0" />
+      <point x="802.5744680851067" y="2883.0" />
+      <point x="802.5744680851067" y="721.0" />
+      <point x="2322.8764538194573" y="721.0" />
+      <point x="-83.4375" y="38.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="screen.PauseScreen">
+      <point x="36.02083333333326" y="-119.0" />
+      <point x="2907.734527896886" y="2873.0" />
+      <point x="3012.6160371527903" y="2873.0" />
+      <point x="-72.79999999999995" y="73.0" />
+    </edge>
+    <edge source="screen.ScoreScreen" target="engine.Cooldown">
+      <point x="-11.833333333333485" y="-61.5" />
+      <point x="1055.330152743968" y="2873.0" />
+      <point x="891.9975450081836" y="2873.0" />
+      <point x="891.9975450081836" y="731.0" />
+      <point x="2334.0014538194573" y="731.0" />
+      <point x="-72.3125" y="38.5" />
+    </edge>
+    <edge source="screen.SelectDifficultyScreen2" target="screen.Screen">
+      <point x="-49.59999999999991" y="-73.0" />
+      <point x="1696.0998584439988" y="3693.0" />
+      <point x="11.0" y="3693.0" />
+      <point x="11.0" y="2265.0" />
+      <point x="1320.5516106661566" y="2265.0" />
+      <point x="-55.730769230769056" y="73.0" />
+    </edge>
+    <edge source="screen.ScoreScreen2" target="screen.Screen">
+      <point x="0.0" y="-61.5" />
+      <point x="741.4997766109382" y="2893.0" />
+      <point x="813.5744680851067" y="2893.0" />
+      <point x="813.5744680851067" y="2315.0" />
+      <point x="1344.7823798969257" y="2315.0" />
+      <point x="-31.5" y="73.0" />
+    </edge>
+    <edge source="screen.TitleScreen" target="screen.Screen">
+      <point x="-60.666666666666515" y="-73.0" />
+      <point x="1537.6605850251312" y="2355.0" />
+      <point x="1383.5516106661566" y="2355.0" />
+      <point x="7.269230769230944" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen" target="entity.Bullet">
+      <point x="92.625" y="-107.5" />
+      <point x="3792.506132923743" y="2933.0" />
+      <point x="3879.391879351372" y="2933.0" />
+      <point x="3879.391879351372" y="448.0" />
+      <point x="3052.961435954046" y="448.0" />
+      <point x="52.363636363636374" y="61.5" />
+    </edge>
+    <edge source="engine.DrawManager" target="entity.Ship2">
+      <point x="65.63636363636351" y="-395.0" />
+      <point x="1436.9187435332892" y="1079.0" />
+      <point x="2448.632703819457" y="1079.0" />
+      <point x="-79.20000000000005" y="96.0" />
+    </edge>
+    <edge source="screen.SelectHighScreen" target="engine.Core">
+      <point x="-46.5" y="73.0" />
+      <point x="1755.8272516917978" y="2903.0" />
+      <point x="1799.4868261598829" y="2903.0" />
+      <point x="1799.4868261598829" y="3241.0" />
+      <point x="1806.769007380169" y="3241.0" />
+      <point x="-5.680851063829778" y="-96.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="engine.GameState2">
+      <point x="-108.0625" y="-119.0" />
+      <point x="2763.651194563553" y="2913.0" />
+      <point x="2071.0272516917976" y="2913.0" />
+      <point x="69.19999999999982" y="73.0" />
+    </edge>
+    <edge source="screen.TitleScreen" target="engine.Cooldown">
+      <point x="60.666666666666515" y="-73.0" />
+      <point x="1658.9939183584643" y="761.0" />
+      <point x="2367.3764538194573" y="761.0" />
+      <point x="-38.9375" y="38.5" />
+    </edge>
+    <edge source="entity.EnemyShip" target="engine.Cooldown">
+      <point x="-54.66666666666674" y="-73.0" />
+      <point x="3427.225212684705" y="1979.0" />
+      <point x="3470.891879351372" y="1979.0" />
+      <point x="3470.891879351372" y="691.0" />
+      <point x="2467.5014538194573" y="691.0" />
+      <point x="61.1875" y="38.5" />
+    </edge>
+    <edge source="screen.ScoreScreen" target="screen.Screen">
+      <point x="35.5" y="-61.5" />
+      <point x="1102.6634860773015" y="2903.0" />
+      <point x="1136.6289116092166" y="2903.0" />
+      <point x="1136.6289116092166" y="2365.0" />
+      <point x="1369.0131491276948" y="2365.0" />
+      <point x="-7.269230769230944" y="73.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.FileManager">
+      <point x="-124.9787234042551" y="-96.0" />
+      <point x="1687.4711350397436" y="3451.0" />
+      <point x="28.851063829787563" y="3451.0" />
+      <point x="28.851063829787563" y="1079.0" />
+      <point x="581.3244680851067" y="1079.0" />
+      <point x="-37.75" y="119.0" />
+    </edge>
+    <edge source="entity.Ship" target="entity.Bullet">
+      <point x="39.59999999999991" y="-96.0" />
+      <point x="2818.9288393344245" y="478.0" />
+      <point x="2948.234163226773" y="478.0" />
+      <point x="-52.363636363636374" y="61.5" />
+    </edge>
+    <edge source="engine.Core" target="screen.SelectHighScreen">
+      <point x="0.0" y="-96.0" />
+      <point x="1812.4498584439987" y="3231.0" />
+      <point x="1805.1676772237126" y="3231.0" />
+      <point x="1805.1676772237126" y="2903.0" />
+      <point x="1848.8272516917978" y="2903.0" />
+      <point x="46.5" y="73.0" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="entity.Bullet">
+      <point x="14.850000000000136" y="-119.0" />
+      <point x="3423.241879351372" y="2295.0" />
+      <point x="3389.391879351372" y="2295.0" />
+      <point x="3389.391879351372" y="458.0" />
+      <point x="3039.8705268631365" y="458.0" />
+      <point x="39.27272727272725" y="61.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="engine.Core">
+      <point x="82.33333333333326" y="107.5" />
+      <point x="3782.2144662570763" y="3411.0" />
+      <point x="1914.7051775929347" y="3411.0" />
+      <point x="102.255319148936" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.DrawManager">
+      <point x="-85.21276595744666" y="-96.0" />
+      <point x="1727.237092486552" y="3381.0" />
+      <point x="258.5744680851067" y="3381.0" />
+      <point x="258.5744680851067" y="1979.0" />
+      <point x="1299.0823798969259" y="1979.0" />
+      <point x="-72.19999999999982" y="395.0" />
+    </edge>
+    <edge source="engine.FileManager" target="engine.Core">
+      <point x="-113.25" y="119.0" />
+      <point x="505.8244680851067" y="1069.0" />
+      <point x="23.170212765957785" y="1069.0" />
+      <point x="23.170212765957785" y="3461.0" />
+      <point x="1681.7902839759138" y="3461.0" />
+      <point x="-130.65957446808488" y="-96.0" />
+    </edge>
+    <edge source="screen.PauseScreen" target="screen.Screen">
+      <point x="0.0" y="-73.0" />
+      <point x="3085.4160371527905" y="2285.0" />
+      <point x="1417.4746875892333" y="2285.0" />
+      <point x="41.19230769230762" y="73.0" />
+    </edge>
+    <edge source="screen.SelectDifficultyScreen2" target="engine.Core">
+      <point x="0.0" y="-73.0" />
+      <point x="-66.75" y="96.0" />
+    </edge>
+    <edge source="screen.ScoreScreen2" target="engine.GameState">
+      <point x="64.71428571428578" y="-61.5" />
+      <point x="806.214062325224" y="2933.0" />
+      <point x="2162.6331027556275" y="2933.0" />
+      <point x="-75.6875" y="84.5" />
+    </edge>
+    <edge source="screen.PauseScreen" target="engine.Cooldown">
+      <point x="60.66666666666674" y="-73.0" />
+      <point x="3146.082703819457" y="2375.0" />
+      <point x="3130.221135039743" y="2375.0" />
+      <point x="3130.221135039743" y="721.0" />
+      <point x="2445.2514538194573" y="721.0" />
+      <point x="38.9375" y="38.5" />
+    </edge>
+    <edge source="engine.FileManager" target="engine.Score">
+      <point x="37.75" y="-119.0" />
+      <point x="656.8244680851067" y="761.0" />
+      <point x="736.6033505928963" y="761.0" />
+      <point x="-67.5" y="61.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="engine.GameSettings">
+      <point x="87.47916666666674" y="-119.0" />
+      <point x="2959.1928612302195" y="2923.0" />
+      <point x="3217.7910371527905" y="2923.0" />
+      <point x="3217.7910371527905" y="2345.0" />
+      <point x="3687.5585460180387" y="2345.0" />
+      <point x="-85.33333333333326" y="61.5" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="engine.GameSettings">
+      <point x="133.64999999999998" y="-119.0" />
+      <point x="3542.041879351372" y="2355.0" />
+      <point x="3708.891879351372" y="2355.0" />
+      <point x="-64.0" y="61.5" />
+    </edge>
+    <edge source="engine.DrawManager" target="engine.Core">
+      <point x="-144.4000000000001" y="395.0" />
+      <point x="1226.8823798969256" y="1969.0" />
+      <point x="51.57446808510667" y="1969.0" />
+      <point x="51.57446808510667" y="3411.0" />
+      <point x="1710.1945392950627" y="3411.0" />
+      <point x="-102.255319148936" y="-96.0" />
+    </edge>
+    <edge source="entity.Bullet" target="entity.Entity">
+      <point x="36.0" y="-61.5" />
+      <point x="3036.5977995904095" y="265.0" />
+      <point x="2791.306188667942" y="265.0" />
+      <point x="34.181818181818244" y="107.5" />
+    </edge>
+    <edge source="screen.HighScoreScreen2" target="engine.Core">
+      <point x="46.5" y="50.0" />
+      <point x="201.57446808510667" y="2953.0" />
+      <point x="157.91489361702156" y="2953.0" />
+      <point x="157.91489361702156" y="3391.0" />
+      <point x="1721.5562414227222" y="3391.0" />
+      <point x="-90.89361702127644" y="-96.0" />
+    </edge>
+    <edge source="screen.HighScoreScreen" target="screen.Screen">
+      <point x="-4.547473508864641E-13" y="-50.0" />
+      <point x="358.0744680851062" y="2295.0" />
+      <point x="1335.090072204618" y="2295.0" />
+      <point x="-41.19230769230762" y="73.0" />
+    </edge>
+    <edge source="engine.Core" target="screen.GameScreen2">
+      <point x="56.808510638297776" y="-96.0" />
+      <point x="1869.2583690822964" y="3331.0" />
+      <point x="2789.3803612302195" y="3331.0" />
+      <point x="-82.33333333333326" y="119.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="engine.Core">
+      <point x="82.33333333333326" y="119.0" />
+      <point x="2954.047027896886" y="3351.0" />
+      <point x="1880.620071209956" y="3351.0" />
+      <point x="68.17021276595733" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="screen.ScoreScreen">
+      <point x="-45.44680851063822" y="-96.0" />
+      <point x="1767.0030499333604" y="3311.0" />
+      <point x="1031.6634860773015" y="3311.0" />
+      <point x="-35.5" y="61.5" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="engine.Core">
+      <point x="0.0" y="119.0" />
+      <point x="3408.391879351372" y="3381.0" />
+      <point x="1897.6626244014453" y="3381.0" />
+      <point x="85.21276595744666" y="-96.0" />
+    </edge>
+    <edge source="engine.DrawManager" target="engine.Score">
+      <point x="0.0" y="-395.0" />
+      <point x="1371.2823798969257" y="691.0" />
+      <point x="871.6033505928963" y="691.0" />
+      <point x="67.5" y="61.5" />
+    </edge>
+    <edge source="engine.Core" target="screen.Screen">
+      <point x="-51.127659574468" y="-96.0" />
+      <point x="1761.3221988695307" y="3321.0" />
+      <point x="985.6634860773015" y="3321.0" />
+      <point x="985.6634860773015" y="2345.0" />
+      <point x="1359.3208414353871" y="2345.0" />
+      <point x="-16.961538461538566" y="73.0" />
+    </edge>
+    <edge source="screen.Screen" target="engine.Core">
+      <point x="-21.807692307692378" y="73.0" />
+      <point x="1354.4746875892333" y="2335.0" />
+      <point x="869.9975450081836" y="2335.0" />
+      <point x="869.9975450081836" y="3331.0" />
+      <point x="1755.641347805701" y="3331.0" />
+      <point x="-56.808510638297776" y="-96.0" />
+    </edge>
+    <edge source="entity.EnemyShip" target="entity.Entity">
+      <point x="0.0" y="-73.0" />
+      <point x="3481.891879351372" y="255.0" />
+      <point x="2808.397097758851" y="255.0" />
+      <point x="51.27272727272725" y="107.5" />
+    </edge>
+    <edge source="entity.Ship2" target="engine.Core">
+      <point x="0.0" y="96.0" />
+      <point x="2527.8327038194575" y="3321.0" />
+      <point x="1863.5775180184667" y="3321.0" />
+      <point x="51.127659574468" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.GameState2">
+      <point x="5.680851063829778" y="-96.0" />
+      <point x="1818.1307095078284" y="3241.0" />
+      <point x="1928.9134860773015" y="3241.0" />
+      <point x="1928.9134860773015" y="2923.0" />
+      <point x="1967.2272516917978" y="2923.0" />
+      <point x="-34.59999999999991" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.EnemyShipFormation">
+      <point x="108.0625" y="-119.0" />
+      <point x="2979.776194563553" y="2943.0" />
+      <point x="3348.991879351372" y="2943.0" />
+      <point x="-59.39999999999998" y="119.0" />
+    </edge>
+    <edge source="screen.HighScoreScreen" target="engine.Core">
+      <point x="-44.5" y="50.0" />
+      <point x="313.5744680851067" y="2953.0" />
+      <point x="355.23404255319156" y="2953.0" />
+      <point x="355.23404255319156" y="3371.0" />
+      <point x="1732.9179435503818" y="3371.0" />
+      <point x="-79.53191489361689" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="screen.SelectDifficultyScreen">
+      <point x="-28.404255319148888" y="-96.0" />
+      <point x="1784.0456031248498" y="3281.0" />
+      <point x="1354.6634860773015" y="3281.0" />
+      <point x="1354.6634860773015" y="2903.0" />
+      <point x="1246.4939183584643" y="2903.0" />
+      <point x="-59.75" y="73.0" />
+    </edge>
+    <edge source="screen.SelectHighScreen" target="screen.Screen">
+      <point x="0.0" y="-73.0" />
+      <point x="1802.3272516917978" y="2325.0" />
+      <point x="1398.090072204618" y="2325.0" />
+      <point x="21.807692307692378" y="73.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.GameState">
+      <point x="17.042553191489333" y="-96.0" />
+      <point x="1829.492411635488" y="3261.0" />
+      <point x="2007.5081027556275" y="3261.0" />
+      <point x="2007.5081027556275" y="2953.0" />
+      <point x="2205.8831027556275" y="2953.0" />
+      <point x="-32.4375" y="84.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.Bullet">
+      <point x="15.4375" y="-119.0" />
+      <point x="2887.151194563553" y="2853.0" />
+      <point x="2901.6559226677577" y="2853.0" />
+      <point x="2901.6559226677577" y="498.0" />
+      <point x="2974.4159814085915" y="498.0" />
+      <point x="-26.181818181818244" y="61.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="screen.PauseScreen">
+      <point x="-80.27499999999998" y="-107.5" />
+      <point x="3619.6061329237427" y="2773.0" />
+      <point x="3158.2160371527902" y="2773.0" />
+      <point x="72.79999999999995" y="73.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.Musicmanager">
+      <point x="22.72340425531911" y="-96.0" />
+      <point x="1835.1732626993178" y="3271.0" />
+      <point x="2117.5081027556275" y="3271.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="screen.SelectDifficultyScreen" target="screen.Screen">
+      <point x="0.0" y="-73.0" />
+      <point x="1306.2439183584643" y="2375.0" />
+      <point x="1373.8593029738486" y="2375.0" />
+      <point x="-2.423076923077133" y="73.0" />
+    </edge>
+    <edge source="engine.Core" target="screen.ScoreScreen2">
+      <point x="-68.17021276595733" y="-96.0" />
+      <point x="1744.2796456780413" y="3351.0" />
+      <point x="703.7497766109382" y="3351.0" />
+      <point x="-37.75" y="61.5" />
+    </edge>
+    <edge source="screen.ScoreScreen2" target="engine.GameState2">
+      <point x="43.14285714285734" y="-61.5" />
+      <point x="784.6426337537955" y="2913.0" />
+      <point x="1932.627251691798" y="2913.0" />
+      <point x="-69.19999999999982" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.Ship2">
+      <point x="-56.60416666666674" y="-119.0" />
+      <point x="2815.109527896886" y="2863.0" />
+      <point x="2610.9889538194575" y="2863.0" />
+      <point x="2610.9889538194575" y="1089.0" />
+      <point x="2567.432703819457" y="1089.0" />
+      <point x="39.59999999999991" y="96.0" />
+    </edge>
+    <edge source="screen.ScoreScreen2" target="engine.Score2">
+      <point x="-43.14285714285734" y="-61.5" />
+      <point x="698.3569194680808" y="2873.0" />
+      <point x="791.5744680851067" y="2873.0" />
+      <point x="791.5744680851067" y="751.0" />
+      <point x="587.1033505928963" y="751.0" />
+      <point x="42.0" y="61.5" />
+    </edge>
+    <edge source="engine.DrawManager" target="engine.Score2">
+      <point x="-32.81818181818198" y="-395.0" />
+      <point x="1338.4641980787437" y="1119.0" />
+      <point x="1349.121376768171" y="1119.0" />
+      <point x="1349.121376768171" y="701.0" />
+      <point x="615.1033505928963" y="701.0" />
+      <point x="70.0" y="61.5" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="engine.DrawManager">
+      <point x="-74.25" y="-119.0" />
+      <point x="3334.141879351372" y="2305.0" />
+      <point x="3356.391879351372" y="2305.0" />
+      <point x="3356.391879351372" y="1959.0" />
+      <point x="1515.6823798969258" y="1959.0" />
+      <point x="144.4000000000001" y="395.0" />
+    </edge>
+    <edge source="entity.Ship2" target="entity.Bullet">
+      <point x="39.59999999999991" y="-96.0" />
+      <point x="2567.432703819457" y="771.0" />
+      <point x="2594.7830060010915" y="771.0" />
+      <point x="2594.7830060010915" y="468.0" />
+      <point x="2935.143254135864" y="468.0" />
+      <point x="-65.4545454545455" y="61.5" />
+    </edge>
+    <edge source="engine.DrawManager" target="engine.FileManager">
+      <point x="-164.090909090909" y="-395.0" />
+      <point x="1207.1914708060167" y="1079.0" />
+      <point x="656.8244680851067" y="1079.0" />
+      <point x="37.75" y="119.0" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="entity.EnemyShip">
+      <point x="44.549999999999955" y="-119.0" />
+      <point x="3452.941879351372" y="2335.0" />
+      <point x="3457.291879351372" y="2335.0" />
+      <point x="-24.600000000000023" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.EnemyShip">
+      <point x="77.1875" y="-119.0" />
+      <point x="2948.901194563553" y="2913.0" />
+      <point x="3207.4993704861236" y="2913.0" />
+      <point x="3207.4993704861236" y="2335.0" />
+      <point x="3440.891879351372" y="2335.0" />
+      <point x="-41.0" y="73.0" />
+    </edge>
+    <edge source="screen.TitleScreen" target="engine.Core">
+      <point x="45.5" y="73.0" />
+      <point x="1643.8272516917978" y="2903.0" />
+      <point x="1601.1676772237126" y="2903.0" />
+      <point x="1601.1676772237126" y="3251.0" />
+      <point x="1801.088156316339" y="3251.0" />
+      <point x="-11.361702127659555" y="-96.0" />
+    </edge>
+    <edge source="screen.ScoreScreen" target="engine.GameState">
+      <point x="59.166666666666515" y="-61.5" />
+      <point x="1126.330152743968" y="2943.0" />
+      <point x="2184.2581027556275" y="2943.0" />
+      <point x="-54.0625" y="84.5" />
+    </edge>
+    <edge source="screen.SelectDifficultyScreen" target="engine.Cooldown">
+      <point x="-79.66666666666674" y="-73.0" />
+      <point x="1226.5772516917978" y="2245.0" />
+      <point x="1079.2823798969257" y="2245.0" />
+      <point x="1079.2823798969257" y="741.0" />
+      <point x="2345.1264538194573" y="741.0" />
+      <point x="-61.1875" y="38.5" />
+    </edge>
+    <edge source="entity.Ship" target="entity.Entity">
+      <point x="0.0" y="-96.0" />
+      <point x="2778.4788393344247" y="741.0" />
+      <point x="2764.1788393344245" y="741.0" />
+      <point x="2764.1788393344245" y="265.0" />
+      <point x="2757.1243704861236" y="265.0" />
+      <point x="0.0" y="107.5" />
+    </edge>
+    <edge source="engine.Frame" target="screen.Screen">
+      <point x="22.71428571428578" y="50.0" />
+      <point x="1191.9966656112115" y="1119.0" />
+      <point x="1180.2823798969257" y="1119.0" />
+      <point x="1180.2823798969257" y="1949.0" />
+      <point x="1344.7823798969257" y="1949.0" />
+      <point x="-31.5" y="-73.0" />
+    </edge>
+    <edge source="screen.SelectHighScreen" target="engine.Cooldown">
+      <point x="62.0" y="-73.0" />
+      <point x="1864.3272516917978" y="771.0" />
+      <point x="2378.5014538194573" y="771.0" />
+      <point x="-27.8125" y="38.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.Ship">
+      <point x="-5.145833333333485" y="-119.0" />
+      <point x="2866.567861230219" y="2813.0" />
+      <point x="2778.4788393344247" y="2813.0" />
+      <point x="0.0" y="96.0" />
+    </edge>
+    <edge source="entity.Ship2" target="entity.BulletPool">
+      <point x="79.20000000000005" y="-96.0" />
+      <point x="2607.0327038194573" y="751.0" />
+      <point x="3007.6061329237427" y="751.0" />
+      <point x="-77.20000000000005" y="38.5" />
+    </edge>
+    <edge source="engine.DrawManager" target="entity.Ship">
+      <point x="164.090909090909" y="-395.0" />
+      <point x="1535.3732889878347" y="1109.0" />
+      <point x="2721.907410762996" y="1109.0" />
+      <point x="-56.57142857142867" y="96.0" />
+    </edge>
+    <edge source="screen.HighScoreScreen2" target="engine.Score2">
+      <point x="-62.0" y="-50.0" />
+      <point x="93.07446808510667" y="2245.0" />
+      <point x="94.60335059289628" y="2245.0" />
+      <point x="94.60335059289628" y="751.0" />
+      <point x="475.1033505928963" y="751.0" />
+      <point x="-70.0" y="61.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="entity.Ship">
+      <point x="30.875" y="-107.5" />
+      <point x="3730.756132923743" y="2683.0" />
+      <point x="3644.391879351372" y="2683.0" />
+      <point x="3644.391879351372" y="1099.0" />
+      <point x="2863.3359821915674" y="1099.0" />
+      <point x="84.85714285714289" y="96.0" />
+    </edge>
+    <edge source="screen.SelectDifficultyScreen" target="engine.Core">
+      <point x="59.75" y="73.0" />
+      <point x="1365.9939183584643" y="2903.0" />
+      <point x="1360.3443371411313" y="2903.0" />
+      <point x="1360.3443371411313" y="3271.0" />
+      <point x="1789.7264541886796" y="3271.0" />
+      <point x="-22.72340425531911" y="-96.0" />
+    </edge>
+    <edge source="engine.DrawManager" target="entity.Entity">
+      <point x="32.81818181818198" y="-395.0" />
+      <point x="1404.1005617151077" y="1119.0" />
+      <point x="1382.2823798969257" y="1119.0" />
+      <point x="1382.2823798969257" y="245.0" />
+      <point x="2671.6698250315785" y="245.0" />
+      <point x="-85.4545454545455" y="107.5" />
+    </edge>
+    <edge source="screen.ScoreScreen2" target="engine.Core">
+      <point x="37.75" y="61.5" />
+      <point x="779.2497766109382" y="3341.0" />
+      <point x="1749.960496741871" y="3341.0" />
+      <point x="-62.48936170212755" y="-96.0" />
+    </edge>
+    <edge source="screen.GameScreen" target="engine.GameState">
+      <point x="-117.32499999999993" y="-107.5" />
+      <point x="3582.556132923743" y="2803.0" />
+      <point x="2292.3831027556275" y="2803.0" />
+      <point x="54.0625" y="84.5" />
+    </edge>
+    <edge source="screen.ScoreScreen" target="engine.Score">
+      <point x="-59.166666666666515" y="-61.5" />
+      <point x="1007.996819410635" y="2893.0" />
+      <point x="826.1033505928963" y="2893.0" />
+      <point x="826.1033505928963" y="711.0" />
+      <point x="817.6033505928963" y="711.0" />
+      <point x="13.5" y="61.5" />
+    </edge>
+    <edge source="screen.Screen" target="engine.DrawManager">
+      <point x="-10.5" y="-73.0" />
+      <point x="1365.7823798969257" y="1979.0" />
+      <point x="1371.2823798969257" y="1979.0" />
+      <point x="0.0" y="395.0" />
+    </edge>
+    <edge source="screen.GameScreen" target="entity.Entity">
+      <point x="117.32500000000005" y="-107.5" />
+      <point x="3817.206132923743" y="2953.0" />
+      <point x="3901.391879351372" y="2953.0" />
+      <point x="3901.391879351372" y="235.0" />
+      <point x="2842.5789159406695" y="235.0" />
+      <point x="85.4545454545455" y="107.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="engine.Cooldown">
+      <point x="43.22499999999991" y="-107.5" />
+      <point x="3743.1061329237427" y="2673.0" />
+      <point x="3655.391879351372" y="2673.0" />
+      <point x="3655.391879351372" y="681.0" />
+      <point x="2478.6264538194573" y="681.0" />
+      <point x="72.3125" y="38.5" />
+    </edge>
+    <edge source="engine.Core" target="screen.SelectDifficultyScreen2">
+      <point x="66.75" y="96.0" />
+      <point x="1879.1998584439987" y="3693.0" />
+      <point x="1795.2998584439986" y="3693.0" />
+      <point x="49.59999999999991" y="-73.0" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="screen.Screen">
+      <point x="-133.64999999999992" y="-119.0" />
+      <point x="3274.741879351372" y="2275.0" />
+      <point x="1422.3208414353871" y="2275.0" />
+      <point x="46.03846153846143" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="screen.Screen">
+      <point x="-77.1875" y="-119.0" />
+      <point x="2794.526194563553" y="2883.0" />
+      <point x="2590.405620486124" y="2883.0" />
+      <point x="2590.405620486124" y="2315.0" />
+      <point x="1402.936226050772" y="2315.0" />
+      <point x="26.65384615384619" y="73.0" />
+    </edge>
+    <edge source="engine.DrawManager" target="screen.Screen">
+      <point x="72.19999999999982" y="395.0" />
+      <point x="1443.4823798969255" y="1959.0" />
+      <point x="1386.7823798969257" y="1959.0" />
+      <point x="10.5" y="-73.0" />
+    </edge>
+    <edge source="entity.Ship2" target="engine.Cooldown">
+      <point x="-79.20000000000005" y="-96.0" />
+      <point x="2448.632703819457" y="771.0" />
+      <point x="2411.8764538194573" y="771.0" />
+      <point x="5.5625" y="38.5" />
+    </edge>
+    <edge source="engine.Core" target="screen.HighScoreScreen2">
+      <point x="-96.57446808510622" y="-96.0" />
+      <point x="1715.8753903588924" y="3401.0" />
+      <point x="152.23404255319178" y="3401.0" />
+      <point x="152.23404255319178" y="2953.0" />
+      <point x="108.57446808510667" y="2953.0" />
+      <point x="-46.5" y="50.0" />
+    </edge>
+    <edge source="screen.Screen" target="engine.Cooldown">
+      <point x="31.5" y="-73.0" />
+      <point x="1407.7823798969257" y="1969.0" />
+      <point x="1562.2823798969257" y="1969.0" />
+      <point x="1562.2823798969257" y="751.0" />
+      <point x="2356.2514538194573" y="751.0" />
+      <point x="-50.0625" y="38.5" />
+    </edge>
+    <edge source="screen.HighScoreScreen2" target="screen.Screen">
+      <point x="62.0" y="-50.0" />
+      <point x="217.07446808510667" y="2285.0" />
+      <point x="1330.2439183584643" y="2285.0" />
+      <point x="-46.03846153846143" y="73.0" />
+    </edge>
+    <edge source="screen.HighScoreScreen" target="engine.Score">
+      <point x="-59.33333333333394" y="-50.0" />
+      <point x="298.74113475177273" y="2245.0" />
+      <point x="300.27001725956234" y="2245.0" />
+      <point x="300.27001725956234" y="1089.0" />
+      <point x="780.5744680851067" y="1089.0" />
+      <point x="780.5744680851067" y="771.0" />
+      <point x="790.6033505928963" y="771.0" />
+      <point x="-13.5" y="61.5" />
+    </edge>
+    <edge source="screen.GameScreen" target="screen.Screen">
+      <point x="-43.22499999999991" y="-107.5" />
+      <point x="3656.656132923743" y="2743.0" />
+      <point x="3578.391879351372" y="2743.0" />
+      <point x="3578.391879351372" y="2255.0" />
+      <point x="1432.0131491276948" y="2255.0" />
+      <point x="55.730769230769056" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen" target="entity.EnemyShip">
+      <point x="-6.1749999999999545" y="-107.5" />
+      <point x="3693.706132923743" y="2713.0" />
+      <point x="3611.391879351372" y="2713.0" />
+      <point x="3611.391879351372" y="2225.0" />
+      <point x="3522.891879351372" y="2225.0" />
+      <point x="41.0" y="73.0" />
+    </edge>
+    <edge source="engine.FileManager" target="engine.DrawManager">
+      <point x="113.25" y="119.0" />
+      <point x="732.3244680851067" y="1069.0" />
+      <point x="1240.0096526241982" y="1069.0" />
+      <point x="-131.27272727272748" y="-395.0" />
+    </edge>
+    <edge source="entity.EnemyShipFormation" target="entity.BulletPool">
+      <point x="-14.849999999999909" y="-119.0" />
+      <point x="3393.541879351372" y="2305.0" />
+      <point x="3378.391879351372" y="2305.0" />
+      <point x="3378.391879351372" y="701.0" />
+      <point x="3123.406132923743" y="701.0" />
+      <point x="38.59999999999991" y="38.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.Entity">
+      <point x="-25.729166666666742" y="-119.0" />
+      <point x="2845.984527896886" y="2833.0" />
+      <point x="2668.9788393344247" y="2833.0" />
+      <point x="2668.9788393344247" y="275.0" />
+      <point x="2722.9425523043055" y="275.0" />
+      <point x="-34.181818181818244" y="107.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="engine.GameState">
+      <point x="-87.47916666666652" y="-119.0" />
+      <point x="2784.234527896886" y="2893.0" />
+      <point x="2270.7581027556275" y="2893.0" />
+      <point x="32.4375" y="84.5" />
+    </edge>
+    <edge source="entity.BulletPool" target="entity.Bullet">
+      <point x="24.125" y="-38.5" />
+      <point x="3108.9311329237426" y="478.0" />
+      <point x="3013.6887086813185" y="478.0" />
+      <point x="13.090909090909122" y="61.5" />
+    </edge>
+    <edge source="screen.GameScreen2" target="entity.BulletPool">
+      <point x="25.729166666666742" y="-119.0" />
+      <point x="2897.4428612302195" y="2863.0" />
+      <point x="2983.9160371527905" y="2863.0" />
+      <point x="2983.9160371527905" y="771.0" />
+      <point x="3084.8061329237426" y="771.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="entity.EnemyShip" target="engine.Core">
+      <point x="73.79999999999995" y="73.0" />
+      <point x="3555.691879351372" y="2205.0" />
+      <point x="3915.229379351372" y="2205.0" />
+      <point x="3915.229379351372" y="3421.0" />
+      <point x="1920.3860286567644" y="3421.0" />
+      <point x="107.93617021276577" y="-96.0" />
+    </edge>
+    <edge source="engine.Core" target="engine.InputManager">
+      <point x="34.085106382978665" y="-96.0" />
+      <point x="1846.5349648269773" y="3291.0" />
+      <point x="2335.3206027556275" y="3291.0" />
+      <point x="49.25" y="73.0" />
+    </edge>
+    <edge source="screen.GameScreen2" target="engine.Cooldown">
+      <point x="-36.02083333333326" y="-119.0" />
+      <point x="2835.6928612302195" y="2843.0" />
+      <point x="2637.3327038194575" y="2843.0" />
+      <point x="2637.3327038194575" y="741.0" />
+      <point x="2423.0014538194573" y="741.0" />
+      <point x="16.6875" y="38.5" />
+    </edge>
+    <edge source="entity.Ship2" target="entity.Entity">
+      <point x="0.0" y="-96.0" />
+      <point x="2527.8327038194575" y="761.0" />
+      <point x="2583.7830060010915" y="761.0" />
+      <point x="2583.7830060010915" y="265.0" />
+      <point x="2705.8516432133965" y="265.0" />
+      <point x="-51.27272727272725" y="107.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4765637371338084" x="1734.422163150025" y="681.8998172453896" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

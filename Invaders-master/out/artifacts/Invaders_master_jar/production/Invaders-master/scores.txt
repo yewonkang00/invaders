@@ -1,0 +1,6 @@
+AAA
+100
+EASY
+BBB
+200
+HARD
