@@ -15,25 +15,25 @@ Our team has five members. Their information is written below.<br/>
 
 > ### 2. Our project
 We add more features to the existing Invaders.
-<br/>
+
 1. 2 users
--> Each spacecraft has a different color
--> Record each score
-<br/>
-2. Set the difficulty level of the game
--> Easy, medium difficult
--> Each level must have different enemy, bullet, and speed of my spaceship.
--> New game difficulty level should be different from traditional games
--> Scores from other difficulty games must be stored individually
-<br/>
-3. Better interface
--> Stop the game with Esc key
--> Create a method to reset the score
-<br/>
-4. Additional requirements
--> Redden the score when the best record is broken
--> Show current level and difficulty at the top
--> Display difficulty level up to 10th place in the highest record
--> Insert Background Music
--> Add Backwarding from the Difficulty Selection Screen
--> Separating the score for 1 and 2
+   - Each spacecraft has a different color
+   - Record each score
+
+1. Set the difficulty level of the game
+   - Easy, medium difficult
+   - Each level must have different enemy, bullet, and speed of my spaceship.
+   - New game difficulty level should be different from traditional games
+   - Scores from other difficulty games must be stored individually
+
+1. Better interface
+   - Stop the game with Esc key
+   - Create a method to reset the score
+
+1. Additional requirements
+   - Redden the score when the best record is broken
+   - Show current level and difficulty at the top
+   - Display difficulty level up to 10th place in the highest record
+   - Insert Background Music
+   - Add Backwarding from the Difficulty Selection Screen
+   - Separating the score for 1 and 2
