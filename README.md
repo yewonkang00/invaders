@@ -41,3 +41,7 @@ https://github.com/RobertoIA/Invaders
    - Insert Background Music
    - Add Backwarding from the Difficulty Selection Screen
    - Separating the score for 1 and 2
+
+> ### 3. Our Project Issue
+We use Jira
+- https://teletubbies5.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=TEL
